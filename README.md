@@ -1,13 +1,12 @@
 <p align="center">
-  <img src="xdg.png" alt="Xdg Icon"/>
+  <img src="xdg.png" alt="XDG Icon"/>
 </p>
 
 # XDG
 
 [![Gem Version](https://badge.fury.io/rb/xdg.svg)](http://badge.fury.io/rb/xdg)
-<!-- Replace <id> with Code Climate repository ID. Remove this comment afterwards. -->
-[![Code Climate Maintainability](https://api.codeclimate.com/v1/badges/<id>/maintainability)](https://codeclimate.com/github/bkuhlmann/xdg/maintainability)
-[![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/<id>/test_coverage)](https://codeclimate.com/github/bkuhlmann/xdg/test_coverage)
+[![Code Climate Maintainability](https://api.codeclimate.com/v1/badges/73c8f06ae65cbe663e1c/maintainability)](https://codeclimate.com/github/bkuhlmann/xdg/maintainability)
+[![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/73c8f06ae65cbe663e1c/test_coverage)](https://codeclimate.com/github/bkuhlmann/xdg/test_coverage)
 [![Circle CI Status](https://circleci.com/gh/bkuhlmann/xdg.svg?style=svg)](https://circleci.com/gh/bkuhlmann/xdg)
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
