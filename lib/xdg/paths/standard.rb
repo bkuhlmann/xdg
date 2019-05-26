@@ -19,11 +19,11 @@ module XDG
       end
 
       def default
-        home.join(String(value)).expand_path
+        expand_home_for String(value)
       end
 
       def dynamic
-        String(environment[key]).then { |path| path.empty? ? default : home.join(path).expand_path }
+        String(environment[key]).then { |path| path.empty? ? default : expand_home_for(path) }
       end
 
       private
@@ -32,6 +32,10 @@ module XDG
 
       def home
         Pathname environment.fetch(HOME_KEY)
+      end
+
+      def expand_home_for path
+        home.join(path).expand_path
       end
     end
   end
