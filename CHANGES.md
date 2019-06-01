@@ -1,3 +1,11 @@
+# 3.0.0 (2019-06-01)
+
+- Added Gemsmith skeleton.
+- Added implementation extracted from Runcom gem.
+- Updated Code Climate badge links.
+- Refactored directory path arrays.
+- Refactored standard path expansion of home path.
+
 # 2.2.5 (2019-05-21)
 
 - Fixed a gem packaging issue where the `index` file from the 2.2.3 implementation was missing which
