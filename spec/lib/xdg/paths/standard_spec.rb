@@ -5,8 +5,8 @@ require "spec_helper"
 RSpec.describe XDG::Paths::Standard do
   subject(:path) { described_class.new pair, environment }
 
-  let(:pair) { XDG::Pair.new "TEST", "test" }
-  let(:home) { XDG::Pair.new "HOME", "/home" }
+  let(:pair) { XDG::Pair["TEST", "test"] }
+  let(:home) { XDG::Pair["HOME", "/home"] }
   let(:environment) { home.to_env }
 
   describe "#default" do
@@ -35,7 +35,7 @@ RSpec.describe XDG::Paths::Standard do
     end
 
     context "with missing pair value" do
-      let(:pair) { XDG::Pair.new "TEST" }
+      let(:pair) { XDG::Pair["TEST"] }
 
       it "answers home path" do
         expect(path.default).to eq(Pathname("/home"))
@@ -43,7 +43,7 @@ RSpec.describe XDG::Paths::Standard do
     end
 
     context "with nil pair value" do
-      let(:pair) { XDG::Pair.new "TEST", nil }
+      let(:pair) { XDG::Pair["TEST", nil] }
 
       it "answers home path" do
         expect(path.default).to eq(Pathname("/home"))

@@ -6,8 +6,8 @@ module XDG
   class Config
     extend Forwardable
 
-    HOME_PAIR = Pair.new("XDG_CONFIG_HOME", ".config").freeze
-    DIRS_PAIR = Pair.new("XDG_CONFIG_DIRS", "/etc/xdg").freeze
+    HOME_PAIR = Pair["XDG_CONFIG_HOME", ".config"].freeze
+    DIRS_PAIR = Pair["XDG_CONFIG_DIRS", "/etc/xdg"].freeze
 
     delegate %i[home directories all] => :combined
 

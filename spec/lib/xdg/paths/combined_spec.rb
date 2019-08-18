@@ -6,11 +6,11 @@ RSpec.describe XDG::Paths::Combined do
   subject(:combined) { described_class.new home, directories }
 
   let :home do
-    XDG::Paths::Standard.new XDG::Pair.new("TEST_HOME", "/one"), environment
+    XDG::Paths::Standard.new XDG::Pair["TEST_HOME", "/one"], environment
   end
 
   let :directories do
-    XDG::Paths::Directory.new XDG::Pair.new("TEST_DIRS", "/two:/three"), environment
+    XDG::Paths::Directory.new XDG::Pair["TEST_DIRS", "/two:/three"], environment
   end
 
   let(:environment) { {"HOME" => "/home"} }
@@ -38,11 +38,11 @@ RSpec.describe XDG::Paths::Combined do
 
     context "with set environment" do
       let :home do
-        XDG::Paths::Standard.new XDG::Pair.new("TEST_HOME", nil), environment
+        XDG::Paths::Standard.new XDG::Pair["TEST_HOME", nil], environment
       end
 
       let :directories do
-        XDG::Paths::Directory.new XDG::Pair.new("TEST_DIRS", nil), environment
+        XDG::Paths::Directory.new XDG::Pair["TEST_DIRS", nil], environment
       end
 
       let :environment do

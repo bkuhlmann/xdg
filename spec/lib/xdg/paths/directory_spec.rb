@@ -5,12 +5,12 @@ require "spec_helper"
 RSpec.describe XDG::Paths::Directory do
   subject(:directories) { described_class.new pair, environment }
 
-  let(:home) { XDG::Pair.new "HOME", "/home" }
+  let(:home) { XDG::Pair["HOME", "/home"] }
   let(:environment) { home.to_env }
 
   describe "#default" do
     context "with single path" do
-      let(:pair) { XDG::Pair.new "TEST_DIRS", "/one" }
+      let(:pair) { XDG::Pair["TEST_DIRS", "/one"] }
 
       it "answers array with one path" do
         expect(directories.default).to contain_exactly(Pathname("/one"))
@@ -18,7 +18,7 @@ RSpec.describe XDG::Paths::Directory do
     end
 
     context "with multiple paths" do
-      let(:pair) { XDG::Pair.new "TEST_DIRS", "/one:/two:/three" }
+      let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two:/three"] }
 
       it "answers array with multiple paths" do
         expect(directories.default).to contain_exactly(
@@ -30,7 +30,7 @@ RSpec.describe XDG::Paths::Directory do
     end
 
     context "with tilda value" do
-      let(:pair) { XDG::Pair.new "TEST_DIRS", "~/test" }
+      let(:pair) { XDG::Pair["TEST_DIRS", "~/test"] }
 
       it "answers expanded paths" do
         path = Pathname File.join(ENV["HOME"], "test")
@@ -39,7 +39,7 @@ RSpec.describe XDG::Paths::Directory do
     end
 
     context "with nil pair value" do
-      let(:pair) { XDG::Pair.new "TEST_DIRS", nil }
+      let(:pair) { XDG::Pair["TEST_DIRS", nil] }
 
       it "answers empty array" do
         expect(directories.default).to eq([])
@@ -47,7 +47,7 @@ RSpec.describe XDG::Paths::Directory do
     end
 
     context "with nil pair key and value" do
-      let(:pair) { XDG::Pair.new nil, nil }
+      let(:pair) { XDG::Pair[nil, nil] }
 
       it "answers empty array" do
         expect(directories.default).to eq([])
@@ -57,7 +57,7 @@ RSpec.describe XDG::Paths::Directory do
 
   describe "#dynamic" do
     context "with pair unset and environment set" do
-      let(:pair) { XDG::Pair.new "TEST_DIRS", nil }
+      let(:pair) { XDG::Pair["TEST_DIRS", nil] }
       let(:environment) { home.to_env.merge "TEST_DIRS" => "/one:/two" }
 
       it "answers environment paths" do
@@ -69,7 +69,7 @@ RSpec.describe XDG::Paths::Directory do
     end
 
     context "with pair set and environment unset" do
-      let(:pair) { XDG::Pair.new "TEST_DIRS", "/one:/two" }
+      let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two"] }
 
       it "answers default paths" do
         expect(directories.dynamic).to contain_exactly(
@@ -80,7 +80,7 @@ RSpec.describe XDG::Paths::Directory do
     end
 
     context "with duplicate directories" do
-      let(:pair) { XDG::Pair.new "TEST_DIRS", "/one:/two:/one" }
+      let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two:/one"] }
 
       it "answers unique directories" do
         expect(directories.dynamic).to contain_exactly(
@@ -91,7 +91,7 @@ RSpec.describe XDG::Paths::Directory do
     end
 
     context "with nil pair value" do
-      let(:pair) { XDG::Pair.new "TEST_DIRS", nil }
+      let(:pair) { XDG::Pair["TEST_DIRS", nil] }
 
       it "answers empty array" do
         expect(directories.dynamic).to eq([])
@@ -99,7 +99,7 @@ RSpec.describe XDG::Paths::Directory do
     end
 
     context "with nil pair key and value" do
-      let(:pair) { XDG::Pair.new nil, nil }
+      let(:pair) { XDG::Pair[nil, nil] }
 
       it "answers empty array" do
         expect(directories.dynamic).to eq([])

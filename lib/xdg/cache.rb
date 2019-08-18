@@ -6,7 +6,7 @@ module XDG
   class Cache
     extend Forwardable
 
-    HOME_PAIR = Pair.new("XDG_CACHE_HOME", ".cache").freeze
+    HOME_PAIR = Pair["XDG_CACHE_HOME", ".cache"].freeze
 
     delegate %i[home directories all] => :combined
 

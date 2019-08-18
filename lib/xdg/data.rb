@@ -6,8 +6,8 @@ module XDG
   class Data
     extend Forwardable
 
-    HOME_PAIR = Pair.new("XDG_DATA_HOME", ".local/share").freeze
-    DIRS_PAIR = Pair.new("XDG_DATA_DIRS", "/usr/local/share:/usr/share").freeze
+    HOME_PAIR = Pair["XDG_DATA_HOME", ".local/share"].freeze
+    DIRS_PAIR = Pair["XDG_DATA_DIRS", "/usr/local/share:/usr/share"].freeze
 
     delegate %i[home directories all] => :combined
 
