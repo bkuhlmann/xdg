@@ -1,3 +1,9 @@
+# 3.0.2 (2019-09-01)
+
+- Updated to Rubocop 0.73.0.
+- Updated to Ruby 2.6.4.
+- Refactored structs to use hash-like syntax.
+
 # 3.0.1 (2019-07-01)
 
 - Updated Code Quality links.
