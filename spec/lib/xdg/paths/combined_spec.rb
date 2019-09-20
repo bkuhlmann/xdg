@@ -5,14 +5,8 @@ require "spec_helper"
 RSpec.describe XDG::Paths::Combined do
   subject(:combined) { described_class.new home, directories }
 
-  let :home do
-    XDG::Paths::Standard.new XDG::Pair["TEST_HOME", "/one"], environment
-  end
-
-  let :directories do
-    XDG::Paths::Directory.new XDG::Pair["TEST_DIRS", "/two:/three"], environment
-  end
-
+  let(:home) { XDG::Paths::Standard.new XDG::Pair["TEST_HOME", "/one"], environment }
+  let(:directories) { XDG::Paths::Directory.new XDG::Pair["TEST_DIRS", "/two:/three"], environment }
   let(:environment) { {"HOME" => "/home"} }
 
   describe "#home" do
@@ -37,13 +31,8 @@ RSpec.describe XDG::Paths::Combined do
     end
 
     context "with set environment" do
-      let :home do
-        XDG::Paths::Standard.new XDG::Pair["TEST_HOME", nil], environment
-      end
-
-      let :directories do
-        XDG::Paths::Directory.new XDG::Pair["TEST_DIRS", nil], environment
-      end
+      let(:home) { XDG::Paths::Standard.new XDG::Pair["TEST_HOME", nil], environment }
+      let(:directories) { XDG::Paths::Directory.new XDG::Pair["TEST_DIRS", nil], environment }
 
       let :environment do
         {
@@ -58,6 +47,23 @@ RSpec.describe XDG::Paths::Combined do
           Pathname("/home/one"),
           Pathname("/two")
         )
+      end
+    end
+  end
+
+  describe "#inspect" do
+    context "with home and directories pairs" do
+      it "answers home and directories paths" do
+        expect(combined.inspect).to eq("TEST_HOME=/one TEST_DIRS=/two:/three")
+      end
+    end
+
+    context "with empty home and directories pairs" do
+      let(:home) { XDG::Paths::Standard.new XDG::Pair.new, environment }
+      let(:directories) { XDG::Paths::Directory.new XDG::Pair.new, environment }
+
+      it "answers path only" do
+        expect(combined.inspect).to eq("/home")
       end
     end
   end

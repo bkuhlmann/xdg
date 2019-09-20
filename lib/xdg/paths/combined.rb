@@ -23,6 +23,10 @@ module XDG
         directories.prepend home
       end
 
+      def inspect
+        [initial_home.inspect, initial_directories.inspect].reject(&:empty?).join " "
+      end
+
       private
 
       attr_reader :initial_home, :initial_directories
