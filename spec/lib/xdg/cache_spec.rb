@@ -26,4 +26,10 @@ RSpec.describe XDG::Cache do
       expect(cache.all).to contain_exactly(Pathname("/home/.cache"))
     end
   end
+
+  describe "#inspect" do
+    it "answers environment settings" do
+      expect(cache.inspect).to eq("XDG_CACHE_HOME=/home/.cache")
+    end
+  end
 end
