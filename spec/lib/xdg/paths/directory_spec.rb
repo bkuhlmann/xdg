@@ -116,4 +116,22 @@ RSpec.describe XDG::Paths::Directory do
       end
     end
   end
+
+  describe "#inspect" do
+    context "with custom pair" do
+      let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two:/three"] }
+
+      it "answers custom pair" do
+        expect(directories.inspect).to eq("TEST_DIRS=/one:/two:/three")
+      end
+    end
+
+    context "with empty pair" do
+      let(:pair) { XDG::Pair.new }
+
+      it "answers empty string" do
+        expect(directories.inspect).to eq("")
+      end
+    end
+  end
 end

@@ -24,6 +24,10 @@ module XDG
                                 .map(&method(:expand))
       end
 
+      def inspect
+        [key, dynamic.join(DELIMITER)].reject(&:empty?).join XDG::PAIR_DELIMITER
+      end
+
       private
 
       attr_reader :pair, :environment
