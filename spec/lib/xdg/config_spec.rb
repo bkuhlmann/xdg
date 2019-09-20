@@ -30,4 +30,10 @@ RSpec.describe XDG::Config do
       )
     end
   end
+
+  describe "#inspect" do
+    it "answers environment settings" do
+      expect(configuration.inspect).to eq("XDG_CONFIG_HOME=/home/.config XDG_CONFIG_DIRS=/etc/xdg")
+    end
+  end
 end
