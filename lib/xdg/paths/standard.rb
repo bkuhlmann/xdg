@@ -19,23 +19,27 @@ module XDG
       end
 
       def default
-        expand_home_for String(value)
+        expand String(value)
       end
 
       def dynamic
-        String(environment[key]).then { |path| path.empty? ? default : expand_home_for(path) }
+        String(environment[key]).then { |path| path.empty? ? default : expand(path) }
+      end
+
+      def inspect
+        [pair.key, dynamic].compact.join XDG::PAIR_DELIMITER
       end
 
       private
 
       attr_reader :pair, :environment
 
-      def home
-        Pathname environment.fetch(HOME_KEY)
+      def expand path
+        home.join(path).expand_path
       end
 
-      def expand_home_for path
-        home.join(path).expand_path
+      def home
+        Pathname environment.fetch(HOME_KEY)
       end
     end
   end
