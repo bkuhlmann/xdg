@@ -34,4 +34,12 @@ RSpec.describe XDG::Data do
       )
     end
   end
+
+  describe "#inspect" do
+    it "answers environment settings" do
+      expect(data.inspect).to eq(
+        "XDG_DATA_HOME=/home/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share"
+      )
+    end
+  end
 end
