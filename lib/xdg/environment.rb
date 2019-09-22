@@ -28,6 +28,10 @@ module XDG
       data.directories
     end
 
+    def inspect
+      "#{cache.inspect} #{config.inspect} #{data.inspect}"
+    end
+
     private
 
     attr_reader :cache, :config, :data
