@@ -60,4 +60,22 @@ RSpec.describe XDG::Pair do
       expect(described_class[].empty?).to eq(true)
     end
   end
+
+  describe "#inspect" do
+    it "answers <key><delimiter><value> when both are present" do
+      expect(pair.inspect).to eq("TEST=example")
+    end
+
+    it "answers <key><delimiter> with key only" do
+      expect(described_class["TEST"].inspect).to eq("TEST=")
+    end
+
+    it "answers <delimiter><value> with value only" do
+      expect(described_class[nil, "example"].inspect).to eq("=example")
+    end
+
+    it "answers empty string with no key and value" do
+      expect(described_class.new.inspect).to eq("")
+    end
+  end
 end
