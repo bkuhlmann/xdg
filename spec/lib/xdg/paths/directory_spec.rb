@@ -70,12 +70,22 @@ RSpec.describe XDG::Paths::Directory do
 
     context "with pair set and environment unset" do
       let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two"] }
+      let(:environment) { home.to_env.merge "TEST_DIRS" => nil }
 
       it "answers default paths" do
         expect(directories.dynamic).to contain_exactly(
           Pathname("/one"),
           Pathname("/two")
         )
+      end
+    end
+
+    context "with empty pair and environment" do
+      let(:pair) { XDG::Pair.new }
+      let(:environment) { {} }
+
+      it "answers empty array" do
+        expect(directories.dynamic).to eq([])
       end
     end
 

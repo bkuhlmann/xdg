@@ -18,12 +18,19 @@ module XDG
       end
 
       def dynamic
-        environment.fetch(pair.key, paths).split(DELIMITER).uniq.map(&method(:expand))
+        String(environment[key]).then { |env_paths| env_paths.empty? ? paths : env_paths }
+                                .split(DELIMITER)
+                                .uniq
+                                .map(&method(:expand))
       end
 
       private
 
       attr_reader :pair, :environment
+
+      def key
+        String pair.key
+      end
 
       def paths
         String pair.value
