@@ -25,6 +25,7 @@ sugar that includes what is found in this gem, make sure to check out the
   - [Setup](#setup)
   - [Usage](#usage)
       - [Overview](#overview)
+      - [Examples](#examples)
       - [Variable Defaults](#variable-defaults)
       - [Variable Behavior](#variable-behavior)
         - [`$XDG_*_DIRS`](#xdg__dirs)
@@ -97,6 +98,47 @@ following messages:
 - `#directories` - Answers an array directories as computed via the `$XDG_*_DIRS` key.
 - `#all` - Answers an array of *all* directories as computed from the combined `$XDG_*_HOME` and
   `$XDG_*_DIRS` values (with `$XDG_*_HOME` prefixed at the start of the array).
+
+#### Examples
+
+The following are examples of what you would see when playing around with the XDG objects within an
+IRB console (taken from my own environment):
+
+    require "xdg"
+
+    # Initialization
+    environment = XDG::Environment.new
+    cache = XDG::Cache.new
+    config = XDG::Config.new
+    data = XDG::Data.new
+
+    # Inspection
+    environment.inspect # => XDG_CACHE_HOME=/Users/bkuhlmann/.cache XDG_CONFIG_HOME=/Users/bkuhlmann/.config XDG_CONFIG_DIRS=/etc/xdg XDG_DATA_HOME=/Users/bkuhlmann/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share
+    cache.inspect # => "XDG_CACHE_HOME=/Users/bkuhlmann/.cache"
+    config.inspect # => "XDG_CONFIG_HOME=/Users/bkuhlmann/.config XDG_CONFIG_DIRS=/etc/xdg"
+    data.inspect # => "XDG_DATA_HOME=/Users/bkuhlmann/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share"
+
+    # Paths
+    environment.cache_home # => #<Pathname:/Users/bkuhlmann/.cache>
+    environment.config_home # => #<Pathname:/Users/bkuhlmann/.config>
+    environment.config_dirs # => [#<Pathname:/etc/xdg>]
+    environment.data_home # => #<Pathname:/Users/bkuhlmann/.local/share>
+    environment.data_dirs # => [#<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
+
+    cache.home # => #<Pathname:/Users/bkuhlmann/.cache>
+    cache.directories # => []
+    cache.all # => [#<Pathname:/Users/bkuhlmann/.cache>]
+
+    config.home # => #<Pathname:/Users/bkuhlmann/.config>
+    config.directories # => [#<Pathname:/etc/xdg>]
+    config.all # => [#<Pathname:/Users/bkuhlmann/.config>, #<Pathname:/etc/xdg>]
+
+    data.home # => #<Pathname:/Users/bkuhlmann/.local/share>
+    data.directories # => [#<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
+    data.all # => [#<Pathname:/Users/bkuhlmann/.local/share>, #<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
+
+As you can see from above, each XDG object answers back a `Pathname` which means you have the
+full `Pathname` API at your fingertips to build upon the output of these objects as needed.
 
 #### Variable Defaults
 
