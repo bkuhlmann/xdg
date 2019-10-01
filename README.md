@@ -53,7 +53,7 @@ sugar that includes what is found in this gem, make sure to check out the
 
 ## Requirements
 
-1. [Ruby 2.6.3](https://www.ruby-lang.org)
+1. [Ruby 2.6.4](https://www.ruby-lang.org)
 
 ## Setup
 

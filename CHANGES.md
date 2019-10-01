@@ -1,3 +1,17 @@
+# 3.1.0 (2019-10-01)
+
+- Fixed dynamic directory path calculation for nil value.
+- Added README example documentation for all XDG objects.
+- Added cache inspection.
+- Added combined path inspection.
+- Added config inspection.
+- Added data inspection.
+- Added directory path inspection.
+- Added environment inspection.
+- Added pair inspection.
+- Added pair presence checks.
+- Added standard path inspection.
+
 # 3.0.2 (2019-09-01)
 
 - Updated to Rubocop 0.73.0.

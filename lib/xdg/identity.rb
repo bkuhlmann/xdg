@@ -12,7 +12,7 @@ module XDG
     end
 
     def self.version
-      "3.0.2"
+      "3.1.0"
     end
 
     def self.version_label
