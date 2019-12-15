@@ -14,11 +14,11 @@ module XDG
       end
 
       def default
-        paths.split(DELIMITER).map(&method(:expand))
+        value.split(DELIMITER).map(&method(:expand))
       end
 
       def dynamic
-        String(environment[key]).then { |env_paths| env_paths.empty? ? paths : env_paths }
+        String(environment[key]).then { |env_value| env_value.empty? ? value : env_value }
                                 .split(DELIMITER)
                                 .uniq
                                 .map(&method(:expand))
@@ -36,7 +36,7 @@ module XDG
         String pair.key
       end
 
-      def paths
+      def value
         String pair.value
       end
 
