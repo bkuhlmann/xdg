@@ -10,7 +10,7 @@
 [![Circle CI Status](https://circleci.com/gh/bkuhlmann/xdg.svg?style=svg)](https://circleci.com/gh/bkuhlmann/xdg)
 
 Provides a Ruby implementation of the [XDG Base Directory
-Specification](https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html).
+Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
 
 :bulb: If you write a lot of Command Line Interfaces and would like additional syntactic
 sugar that includes what is found in this gem, make sure to check out the
