@@ -6,10 +6,10 @@ require "pathname"
 module XDG
   module Paths
     # A XDG home path.
-    class Standard
+    class Home
       extend Forwardable
 
-      HOME_KEY = "HOME"
+      KEY = "HOME"
 
       delegate %i[key value] => :pair
 
@@ -39,7 +39,7 @@ module XDG
       end
 
       def home
-        Pathname environment.fetch(HOME_KEY)
+        Pathname environment.fetch(KEY)
       end
     end
   end

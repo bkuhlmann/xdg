@@ -11,7 +11,7 @@ module XDG
 
     delegate %i[home directories all inspect] => :combined
 
-    def initialize home: Paths::Standard, directories: Paths::Directory, environment: ENV
+    def initialize home: Paths::Home, directories: Paths::Directory, environment: ENV
       @combined = Paths::Combined.new home.new(HOME_PAIR, environment),
                                       directories.new(DIRS_PAIR, environment)
     end

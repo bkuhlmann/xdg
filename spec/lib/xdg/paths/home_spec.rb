@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe XDG::Paths::Standard do
+RSpec.describe XDG::Paths::Home do
   subject(:path) { described_class.new pair, environment }
 
   let(:pair) { XDG::Pair["TEST", "test"] }

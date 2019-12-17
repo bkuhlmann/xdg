@@ -2,7 +2,7 @@
 
 module XDG
   class Environment
-    def initialize home: Paths::Standard, directories: Paths::Directory, environment: ENV
+    def initialize home: Paths::Home, directories: Paths::Directory, environment: ENV
       @cache = Cache.new home: home, directories: directories, environment: environment
       @config = Config.new home: home, directories: directories, environment: environment
       @data = Data.new home: home, directories: directories, environment: environment

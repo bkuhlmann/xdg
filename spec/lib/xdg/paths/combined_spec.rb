@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe XDG::Paths::Combined do
   subject(:combined) { described_class.new home, directories }
 
-  let(:home) { XDG::Paths::Standard.new XDG::Pair["TEST_HOME", "/one"], environment }
+  let(:home) { XDG::Paths::Home.new XDG::Pair["TEST_HOME", "/one"], environment }
   let(:directories) { XDG::Paths::Directory.new XDG::Pair["TEST_DIRS", "/two:/three"], environment }
   let(:environment) { {"HOME" => "/home"} }
 
@@ -31,7 +31,7 @@ RSpec.describe XDG::Paths::Combined do
     end
 
     context "with set environment" do
-      let(:home) { XDG::Paths::Standard.new XDG::Pair["TEST_HOME", nil], environment }
+      let(:home) { XDG::Paths::Home.new XDG::Pair["TEST_HOME", nil], environment }
       let(:directories) { XDG::Paths::Directory.new XDG::Pair["TEST_DIRS", nil], environment }
 
       let :environment do
@@ -59,7 +59,7 @@ RSpec.describe XDG::Paths::Combined do
     end
 
     context "with empty home and directories pairs" do
-      let(:home) { XDG::Paths::Standard.new XDG::Pair.new, environment }
+      let(:home) { XDG::Paths::Home.new XDG::Pair.new, environment }
       let(:directories) { XDG::Paths::Directory.new XDG::Pair.new, environment }
 
       it "answers path only" do

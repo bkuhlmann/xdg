@@ -2,7 +2,7 @@
 
 require "xdg/identity"
 require "xdg/pair"
-require "xdg/paths/standard"
+require "xdg/paths/home"
 require "xdg/paths/directory"
 require "xdg/paths/combined"
 require "xdg/config"
