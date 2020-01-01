@@ -1,3 +1,20 @@
+# 4.0.0 (2020-01-01)
+
+- Fixed README XDG specification link.
+- Fixed SimpleCov setup in RSpec spec helper.
+- Added gem console.
+- Updated Pry development dependencies.
+- Updated standard path as home path.
+- Updated to Rubocop 0.77.0.
+- Updated to Rubocop 0.78.0.
+- Updated to Rubocop Performance 1.5.0.
+- Updated to Rubocop RSpec 1.37.0.
+- Updated to Rubocop Rake 0.5.0.
+- Updated to Ruby 2.7.0.
+- Updated to SimpleCov 0.17.0.
+- Removed unnecessary Bash script documentation.
+- Refactored directory to use self-describing variables.
+
 # 3.1.1 (2019-11-01)
 
 - Added Rubocop Rake support.
