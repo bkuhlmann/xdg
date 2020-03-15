@@ -3,8 +3,8 @@
 require_relative "lib/xdg/identity"
 
 Gem::Specification.new do |spec|
-  spec.name = XDG::Identity.name
-  spec.version = XDG::Identity.version
+  spec.name = XDG::Identity::NAME
+  spec.version = XDG::Identity::VERSION
   spec.platform = Gem::Platform::RUBY
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]

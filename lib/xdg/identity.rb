@@ -3,20 +3,9 @@
 module XDG
   # Gem identity information.
   module Identity
-    def self.name
-      "xdg"
-    end
-
-    def self.label
-      "XDG"
-    end
-
-    def self.version
-      "4.0.1"
-    end
-
-    def self.version_label
-      "#{label} #{version}"
-    end
+    NAME = "xdg"
+    LABEL = "XDG"
+    VERSION = "4.0.1"
+    VERSION_LABEL = "#{LABEL} #{VERSION}"
   end
 end
