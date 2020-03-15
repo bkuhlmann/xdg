@@ -5,8 +5,6 @@
 # XDG
 
 [![Gem Version](https://badge.fury.io/rb/xdg.svg)](http://badge.fury.io/rb/xdg)
-[![Code Climate Maintainability](https://api.codeclimate.com/v1/badges/73c8f06ae65cbe663e1c/maintainability)](https://codeclimate.com/github/bkuhlmann/xdg/maintainability)
-[![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/73c8f06ae65cbe663e1c/test_coverage)](https://codeclimate.com/github/bkuhlmann/xdg/test_coverage)
 [![Circle CI Status](https://circleci.com/gh/bkuhlmann/xdg.svg?style=svg)](https://circleci.com/gh/bkuhlmann/xdg)
 
 Provides a Ruby implementation of the [XDG Base Directory
