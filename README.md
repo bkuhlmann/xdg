@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="xdg.png" alt="XDG Icon"/>
+  <img src="https://www.alchemists.io/images/projects/xdg/icon.png" alt="XDG Icon"/>
 </p>
 
 # XDG
