@@ -21,6 +21,8 @@ sugar that includes what is found in this gem, make sure to check out the
   - [Features](#features)
   - [Requirements](#requirements)
   - [Setup](#setup)
+    - [Production](#production)
+    - [Development](#development)
   - [Usage](#usage)
       - [Overview](#overview)
       - [Examples](#examples)
@@ -55,6 +57,8 @@ sugar that includes what is found in this gem, make sure to check out the
 
 ## Setup
 
+### Production
+
 To install, run:
 
     gem install xdg
@@ -62,6 +66,18 @@ To install, run:
 Add the following to your Gemfile:
 
     gem "xdg"
+
+### Development
+
+To contribute, run:
+
+    git clone https://github.com/bkuhlmann/xdg.git
+    cd xdg
+    bin/setup
+
+You can also use the IRB console for direct access to all objects:
+
+    bin/console
 
 ## Usage
 
