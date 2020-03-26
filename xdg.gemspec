@@ -8,14 +8,15 @@ Gem::Specification.new do |spec|
   spec.platform = Gem::Platform::RUBY
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
-  spec.homepage = "https://github.com/bkuhlmann/xdg"
+  spec.homepage = "https://www.alchemists.io/projects/xdg"
   spec.summary = "Provides an implementation of the XDG Base Directory Specification."
   spec.license = "Apache-2.0"
 
   spec.metadata = {
-    "source_code_uri" => "https://github.com/bkuhlmann/xdg",
-    "changelog_uri" => "https://github.com/bkuhlmann/xdg/blob/master/CHANGES.md",
-    "bug_tracker_uri" => "https://github.com/bkuhlmann/xdg/issues"
+    "bug_tracker_uri" => "https://github.com/bkuhlmann/xdg/issues",
+    "changelog_uri" => "https://www.alchemists.io/projects/xdg/changes.html",
+    "documentation_uri" => "https://www.alchemists.io/projects/xdg",
+    "source_code_uri" => "https://github.com/bkuhlmann/xdg"
   }
 
   spec.signing_key = Gem.default_key_path
