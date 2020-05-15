@@ -2,16 +2,16 @@
 
 == 4.1.0 (2020-04-01)
 
-- Added README production and development setup instructions
-- Updated documentation to ASCII Doc format
-- Updated gem identity to use constants
-- Updated gemspec URLs
-- Updated gemspec to require relative path
-- Updated to Code of Conduct 2.0.0
-- Updated to Reek 6.0.0
-- Updated to Ruby 2.7.1
-- Removed Code Climate support
-- Removed README images
+* Added README production and development setup instructions
+* Updated documentation to ASCII Doc format
+* Updated gem identity to use constants
+* Updated gemspec URLs
+* Updated gemspec to require relative path
+* Updated to Code of Conduct 2.0.0
+* Updated to Reek 6.0.0
+* Updated to Ruby 2.7.1
+* Removed Code Climate support
+* Removed README images
 
 == 4.0.1 (2020-02-01)
 
@@ -89,17 +89,17 @@
 * Fixed a gem packaging issue where the `index` file from the 2.2.3 implementation was missing which
   caused `LoadError` issues for downstream projects.
 * No official Git tag was used for this release due to not having write access to the original
-  [XDG](https://github.com/rubyworks/xdg) project so this release is only available via
-  [RubyGems](https://rubygems.org/gems/xdg/versions/2.2.5).
+  link:https://github.com/rubyworks/xdg[XDG] project so this release is only available via
+  link:https://rubygems.org/gems/xdg/versions/2.2.5[RubyGems].
 
 == 2.2.4 (2019-05-21)
 
 * For all versions prior to 2.2.4 please see the original XDG project
-  [HISTORY](https://github.com/rubyworks/xdg/blob/master/HISTORY.md). The release of 2.2.4 marked the
-  beginning of new ownership of the XDG gem which this project documents starting with the release of
-  2.2.4.
+  link:https://github.com/rubyworks/xdg/blob/master/HISTORY.md[HISTORY]. The release of 2.2.4 marked
+  the beginning of new ownership of the XDG gem which this project documents starting with the
+  release of 2.2.4.
 * Added a post install message for the gem warning everyone of the upcoming 3.0.0 release with major
   breaking changes to the API.
 * No official Git tag was used for this release due to not having write access to the original
-  [XDG](https://github.com/rubyworks/xdg) project so this release is only available via
-  [RubyGems](https://rubygems.org/gems/xdg/versions/2.2.4).
+  link:https://github.com/rubyworks/xdg[XDG] project so this release is only available via
+  link:https://rubygems.org/gems/xdg/versions/2.2.4[RubyGems].
