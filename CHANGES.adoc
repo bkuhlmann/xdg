@@ -1,5 +1,18 @@
 = Changes
 
+== 4.2.0 (2020-07-22)
+
+- Fixed Rubocop Lint/NonDeterministicRequireOrder issues
+- Fixed project history links
+- Fixed project requirements
+- Updated GitHub templates
+- Updated Pry gem dependencies
+- Updated README credit URL
+- Updated Rubocop gem dependencies
+- Updated to Gemsmith 14.2.0
+- Updated to Git Lint 1.0.0
+- Refactored Rakefile requirements
+
 == 4.1.0 (2020-04-01)
 
 * Added README production and development setup instructions
