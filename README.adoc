@@ -35,8 +35,6 @@ access to the following environment settings:
 
 == Setup
 
-=== Production
-
 To install, run:
 
 [source,bash]
@@ -49,24 +47,6 @@ Add the following to your Gemfile:
 [source,ruby]
 ----
 gem "xdg"
-----
-
-=== Development
-
-To contribute, run:
-
-[source,bash]
-----
-git clone https://github.com/bkuhlmann/xdg.git
-cd xdg
-bin/setup
-----
-
-You can also use the IRB console for direct access to all objects:
-
-[source,bash]
-----
-bin/console
 ----
 
 == Usage
@@ -258,6 +238,24 @@ Path precedence is determined in the following order (with the first taking high
 . `$XDG_*_HOME` - Will be used if defined. Otherwise, falls back to specification default.
 . `$XDG_*_DIRS` - Iterates through directories in order defined (with first taking highest
   priority). Otherwise, falls back to specification default.
+
+== Development
+
+To contribute, run:
+
+[source,bash]
+----
+git clone https://github.com/bkuhlmann/xdg.git
+cd xdg
+bin/setup
+----
+
+You can also use the IRB console for direct access to all objects:
+
+[source,bash]
+----
+bin/console
+----
 
 == Tests
 
