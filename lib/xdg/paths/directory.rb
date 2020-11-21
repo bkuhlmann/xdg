@@ -14,14 +14,14 @@ module XDG
       end
 
       def default
-        value.split(DELIMITER).map(&method(:expand))
+        value.split(DELIMITER).map { |path| expand path }
       end
 
       def dynamic
         String(environment[key]).then { |env_value| env_value.empty? ? value : env_value }
                                 .split(DELIMITER)
                                 .uniq
-                                .map(&method(:expand))
+                                .map { |path| expand path }
       end
 
       def inspect
