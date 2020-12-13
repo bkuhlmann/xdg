@@ -1,33 +1,48 @@
 = Changes
 
+== 4.5.0 (2020-12-13)
+
+* Fixed Rubocop Performance/MethodObjectAsBlock issues
+* Fixed spec helper to only require tools
+* Added Amazing Print
+* Added Gemfile groups
+* Added Refinements development dependency
+* Added RubyCritic
+* Updated Circle CI configuration to skip RubyCritic
+* Updated Gemfile to put Guard RSpec in test group
+* Updated Gemfile to put SimpleCov in code quality group
+* Updated to Gemsmith 14.8.0
+* Updated to Git Lint 1.3.0
+* Removed RubyGems requirement from binstubs
+
 == 4.4.0 (2020-11-14)
 
-- Added Alchemists style guide badge
-- Added Bundler Leak development dependency
-- Updated Rubocop gems
-- Updated to Bundler Audit 0.7.0
-- Updated to RSpec 3.10.0
+* Added Alchemists style guide badge
+* Added Bundler Leak development dependency
+* Updated Rubocop gems
+* Updated to Bundler Audit 0.7.0
+* Updated to RSpec 3.10.0
 
 == 4.3.0 (2020-10-18)
 
-- Added Guard and Rubocop binstubs
-- Updated project documentation to conform to Rubysmith template
-- Updated to Rubocop 0.89.0
-- Updated to Ruby 2.7.2
-- Updated to SimpleCov 0.19.0
+* Added Guard and Rubocop binstubs
+* Updated project documentation to conform to Rubysmith template
+* Updated to Rubocop 0.89.0
+* Updated to Ruby 2.7.2
+* Updated to SimpleCov 0.19.0
 
 == 4.2.0 (2020-07-22)
 
-- Fixed Rubocop Lint/NonDeterministicRequireOrder issues
-- Fixed project history links
-- Fixed project requirements
-- Updated GitHub templates
-- Updated Pry gem dependencies
-- Updated README credit URL
-- Updated Rubocop gem dependencies
-- Updated to Gemsmith 14.2.0
-- Updated to Git Lint 1.0.0
-- Refactored Rakefile requirements
+* Fixed Rubocop Lint/NonDeterministicRequireOrder issues
+* Fixed project history links
+* Fixed project requirements
+* Updated GitHub templates
+* Updated Pry gem dependencies
+* Updated README credit URL
+* Updated Rubocop gem dependencies
+* Updated to Gemsmith 14.2.0
+* Updated to Git Lint 1.0.0
+* Refactored Rakefile requirements
 
 == 4.1.0 (2020-04-01)
 
