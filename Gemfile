@@ -24,7 +24,7 @@ end
 
 group :test do
   gem "guard-rspec", "~> 4.7", require: false
-  gem "refinements", "~> 7.18"
+  gem "refinements", "~> 8.0"
   gem "rspec", "~> 3.10"
 end
 
