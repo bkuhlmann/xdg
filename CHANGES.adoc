@@ -1,5 +1,12 @@
 = Changes
 
+== 5.1.0 (2021-01-19)
+
+- Updated to Gemsmith 15.0.0 - Brooke Kuhlmann
+- Updated to Git Lint 2.0.0 - Brooke Kuhlmann
+- Updated to Rubocop 1.8.0 - Brooke Kuhlmann
+- Refactored RSpec temporary directory shared context - Brooke Kuhlmann
+
 == 5.0.0 (2020-12-29)
 
 * Fixed Circle CI configuration for Bundler config path
