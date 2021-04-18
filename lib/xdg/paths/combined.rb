@@ -11,21 +11,13 @@ module XDG
         @initial_directories = initial_directories
       end
 
-      def home
-        initial_home.dynamic
-      end
+      def home = initial_home.dynamic
 
-      def directories
-        initial_directories.dynamic
-      end
+      def directories = initial_directories.dynamic
 
-      def all
-        directories.prepend home
-      end
+      def all = directories.prepend(home)
 
-      def inspect
-        [initial_home.inspect, initial_directories.inspect].reject(&:empty?).join " "
-      end
+      def inspect = [initial_home.inspect, initial_directories.inspect].reject(&:empty?).join(" ")
 
       private
 

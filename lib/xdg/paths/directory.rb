@@ -13,9 +13,7 @@ module XDG
         @environment = environment
       end
 
-      def default
-        value.split(DELIMITER).map { |path| expand path }
-      end
+      def default = value.split(DELIMITER).map { |path| expand path }
 
       def dynamic
         String(environment[key]).then { |env_value| env_value.empty? ? value : env_value }
@@ -24,25 +22,17 @@ module XDG
                                 .map { |path| expand path }
       end
 
-      def inspect
-        [key, dynamic.join(DELIMITER)].reject(&:empty?).join XDG::PAIR_DELIMITER
-      end
+      def inspect = [key, dynamic.join(DELIMITER)].reject(&:empty?).join(XDG::PAIR_DELIMITER)
 
       private
 
       attr_reader :pair, :environment
 
-      def key
-        String pair.key
-      end
+      def key = String(pair.key)
 
-      def value
-        String pair.value
-      end
+      def value = String(pair.value)
 
-      def expand path
-        Pathname(path).expand_path
-      end
+      def expand(path) = Pathname(path).expand_path
     end
   end
 end

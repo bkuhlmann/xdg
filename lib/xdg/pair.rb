@@ -5,21 +5,13 @@ module XDG
 
   # A generic key-value pair (KVP).
   Pair = Struct.new :key, :value do
-    def to_env
-      Hash[*values]
-    end
+    def to_env = Hash[*values]
 
-    def key?
-      key.to_s.size.positive?
-    end
+    def key? = key.to_s.size.positive?
 
-    def value?
-      value.to_s.size.positive?
-    end
+    def value? = value.to_s.size.positive?
 
-    def empty?
-      !(key? && value?)
-    end
+    def empty? = !(key? && value?)
 
     def inspect
       return "" unless key? || value?

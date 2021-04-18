@@ -18,29 +18,19 @@ module XDG
         @environment = environment
       end
 
-      def default
-        expand String(value)
-      end
+      def default = expand(String(value))
 
-      def dynamic
-        String(environment[key]).then { |path| path.empty? ? default : expand(path) }
-      end
+      def dynamic = String(environment[key]).then { |path| path.empty? ? default : expand(path) }
 
-      def inspect
-        [pair.key, dynamic].compact.join XDG::PAIR_DELIMITER
-      end
+      def inspect = [pair.key, dynamic].compact.join(XDG::PAIR_DELIMITER)
 
       private
 
       attr_reader :pair, :environment
 
-      def expand path
-        home.join(path).expand_path
-      end
+      def expand(path) = home.join(path).expand_path
 
-      def home
-        Pathname environment.fetch(KEY)
-      end
+      def home = Pathname(environment.fetch(KEY))
     end
   end
 end

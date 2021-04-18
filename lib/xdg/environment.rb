@@ -8,29 +8,17 @@ module XDG
       @data = Data.new home: home, directories: directories, environment: environment
     end
 
-    def cache_home
-      cache.home
-    end
+    def cache_home = cache.home
 
-    def config_home
-      config.home
-    end
+    def config_home = config.home
 
-    def config_dirs
-      config.directories
-    end
+    def config_dirs = config.directories
 
-    def data_home
-      data.home
-    end
+    def data_home = data.home
 
-    def data_dirs
-      data.directories
-    end
+    def data_dirs = data.directories
 
-    def inspect
-      "#{cache.inspect} #{config.inspect} #{data.inspect}"
-    end
+    def inspect = "#{cache.inspect} #{config.inspect} #{data.inspect}"
 
     private
 
