@@ -1,11 +1,21 @@
 = Changes
 
+== 5.1.1 (2021-04-18)
+
+* Added Ruby garbage collection compaction - Brooke Kuhlmann
+* Updated Code Quality URLs - Brooke Kuhlmann
+* Updated to Circle CI 2.1.0 - Brooke Kuhlmann
+* Updated to Docker Alpine Ruby image - Brooke Kuhlmann
+* Updated to Rubocop 1.10.0 - Brooke Kuhlmann
+* Updated to Ruby 3.0.1 - Brooke Kuhlmann
+* Refactored implementation to use endless methods - Brooke Kuhlmann
+
 == 5.1.0 (2021-01-19)
 
-- Updated to Gemsmith 15.0.0 - Brooke Kuhlmann
-- Updated to Git Lint 2.0.0 - Brooke Kuhlmann
-- Updated to Rubocop 1.8.0 - Brooke Kuhlmann
-- Refactored RSpec temporary directory shared context - Brooke Kuhlmann
+* Updated to Gemsmith 15.0.0 - Brooke Kuhlmann
+* Updated to Git Lint 2.0.0 - Brooke Kuhlmann
+* Updated to Rubocop 1.8.0 - Brooke Kuhlmann
+* Refactored RSpec temporary directory shared context - Brooke Kuhlmann
 
 == 5.0.0 (2020-12-29)
 
