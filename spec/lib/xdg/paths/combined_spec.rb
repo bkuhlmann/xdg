@@ -43,10 +43,7 @@ RSpec.describe XDG::Paths::Combined do
       end
 
       it "answers combined directories" do
-        expect(combined.all).to contain_exactly(
-          Pathname("/home/one"),
-          Pathname("/two")
-        )
+        expect(combined.all).to contain_exactly(Pathname("/home/one"), Pathname("/two"))
       end
     end
   end

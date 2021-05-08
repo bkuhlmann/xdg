@@ -61,10 +61,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:environment) { home.to_env.merge "TEST_DIRS" => "/one:/two" }
 
       it "answers environment paths" do
-        expect(directories.dynamic).to contain_exactly(
-          Pathname("/one"),
-          Pathname("/two")
-        )
+        expect(directories.dynamic).to contain_exactly(Pathname("/one"), Pathname("/two"))
       end
     end
 
@@ -73,10 +70,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:environment) { home.to_env.merge "TEST_DIRS" => nil }
 
       it "answers default paths" do
-        expect(directories.dynamic).to contain_exactly(
-          Pathname("/one"),
-          Pathname("/two")
-        )
+        expect(directories.dynamic).to contain_exactly(Pathname("/one"), Pathname("/two"))
       end
     end
 
@@ -93,10 +87,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two:/one"] }
 
       it "answers unique directories" do
-        expect(directories.dynamic).to contain_exactly(
-          Pathname("/one"),
-          Pathname("/two")
-        )
+        expect(directories.dynamic).to contain_exactly(Pathname("/one"), Pathname("/two"))
       end
     end
 
