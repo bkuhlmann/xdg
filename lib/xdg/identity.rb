@@ -5,7 +5,7 @@ module XDG
   module Identity
     NAME = "xdg"
     LABEL = "XDG"
-    VERSION = "5.1.1"
+    VERSION = "5.1.2"
     VERSION_LABEL = "#{LABEL} #{VERSION}"
   end
 end
