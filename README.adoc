@@ -13,10 +13,12 @@ image::https://circleci.com/gh/bkuhlmann/xdg.svg?style=svg[Circle CI Status]
 
 Provides a Ruby implementation of the
 https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html[XDG Base Directory
-Specification].
+Specification] for managing common configurations without polluting your dotfiles. XDG is great for
+command line interfaces or any application that needs a common configuration, cache, data, or
+runtime.
 
-💡 If you write a lot of Command Line Interfaces and would like additional syntactic sugar that
-includes what is found in this gem, make sure to check out the
+💡 If you write a lot of Command Line Interfaces and would like additional/advanced syntactic sugar
+that includes what is found in this gem, make sure to check out the
 link:https://www.alchemists.io/projects/runcom[Runcom] gem too.
 
 toc::[]
@@ -210,7 +212,7 @@ defined first.
 
 ==== `$XDG_*_HOME`
 
-These variables take precidence over the corresponding `$XDG_*_DIRS` environment variables. Using
+These variables take precedence over the corresponding `$XDG_*_DIRS` environment variables. Using
 a modified version of the `$XDG_*_DIRS` example, shown above, we could have the following setup:
 
 [source,bash]
@@ -230,7 +232,7 @@ Yields the following, colon delimited, array:
 ]
 ----
 
-Due to `XDG_CONFIG_HOME` taking precidence over the `XDG_CONFIG_DIRS`, the path with the
+Due to `XDG_CONFIG_HOME` taking precedence over the `XDG_CONFIG_DIRS`, the path with the
 _highest_ priority in this example is: `"/example/priority"`.
 
 === Variable Priority
