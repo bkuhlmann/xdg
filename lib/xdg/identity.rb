@@ -6,6 +6,6 @@ module XDG
     NAME = "xdg"
     LABEL = "XDG"
     VERSION = "5.1.2"
-    VERSION_LABEL = "#{LABEL} #{VERSION}"
+    VERSION_LABEL = "#{LABEL} #{VERSION}".freeze
   end
 end
