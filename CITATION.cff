@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: Please use the following metadata when citing this project in your work.
+title: XDG
+abstract: Provides an implementation of the XDG Base Directory Specification.
+version: 5.3.0
+license: Hippocratic-3.0
+date-released: 2021-11-20
+authors:
+  - family-names: Kuhlmann
+    given-names: Brooke
+    affiliation: Alchemists
+    orcid: https://orcid.org/0000-0002-5810-6268
+keywords:
+ - ruby
+ - command line interface
+ - XDG
+ - base directory specification
+ - cache
+ - configuration
+ - data
+ - runtime
+repository-code: https://www.alchemists.io/projects/xdg
+repository-artifact: https://rubygems.org/gems/xdg
