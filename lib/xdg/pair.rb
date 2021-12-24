@@ -13,10 +13,6 @@ module XDG
 
     def empty? = !(key? && value?)
 
-    def inspect
-      return "" unless key? || value?
-
-      "#{key}#{PAIR_DELIMITER}#{value}"
-    end
+    def inspect = key? || value? ? "#{key}#{PAIR_DELIMITER}#{value}" : ""
   end
 end
