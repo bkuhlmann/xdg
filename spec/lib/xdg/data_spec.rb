@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe XDG::Data do
-  subject(:data) { described_class.new environment: environment }
+  subject(:data) { described_class.new environment: }
 
   let :environment do
     {"HOME" => "/home"}.merge(described_class::HOME_PAIR.to_env)

@@ -3,9 +3,9 @@
 module XDG
   class Environment
     def initialize home: Paths::Home, directories: Paths::Directory, environment: ENV
-      @cache = Cache.new home: home, directories: directories, environment: environment
-      @config = Config.new home: home, directories: directories, environment: environment
-      @data = Data.new home: home, directories: directories, environment: environment
+      @cache = Cache.new home:, directories:, environment:
+      @config = Config.new home:, directories:, environment:
+      @data = Data.new home:, directories:, environment:
     end
 
     def cache_home = cache.home
