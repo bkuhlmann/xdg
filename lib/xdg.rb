@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "xdg/identity"
 require "xdg/pair"
 require "xdg/paths/home"
 require "xdg/paths/directory"
