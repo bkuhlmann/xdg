@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "xdg"
-  spec.version = "6.0.1"
+  spec.version = "6.1.0"
   spec.platform = Gem::Platform::RUBY
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
