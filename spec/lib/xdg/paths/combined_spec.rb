@@ -30,6 +30,17 @@ RSpec.describe XDG::Paths::Combined do
       )
     end
 
+    it "answers combined directories when dynamic home path answers multiple paths" do
+      allow(home).to receive(:dynamic).and_return([Pathname("/inject_a"), Pathname("/inject_b")])
+
+      expect(combined.all).to contain_exactly(
+        Pathname("/inject_a"),
+        Pathname("/inject_b"),
+        Pathname("/two"),
+        Pathname("/three")
+      )
+    end
+
     context "with set environment" do
       let(:home) { XDG::Paths::Home.new XDG::Pair["TEST_HOME", nil], environment }
       let(:directories) { XDG::Paths::Directory.new XDG::Pair["TEST_DIRS", nil], environment }

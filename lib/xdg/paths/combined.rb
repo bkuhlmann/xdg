@@ -15,7 +15,7 @@ module XDG
 
       def directories = initial_directories.dynamic
 
-      def all = directories.prepend(home)
+      def all = directories.prepend(*home)
 
       def inspect = [initial_home.inspect, initial_directories.inspect].reject(&:empty?).join(" ")
 
