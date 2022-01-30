@@ -5,9 +5,7 @@ require "spec_helper"
 RSpec.describe XDG::Cache do
   subject(:cache) { described_class.new environment: }
 
-  let :environment do
-    {"HOME" => "/home"}.merge(described_class::HOME_PAIR.to_env)
-  end
+  let(:environment) { {"HOME" => "/home", **described_class::HOME_PAIR.to_env} }
 
   describe "#home" do
     it "answers home directory" do

@@ -6,8 +6,7 @@ RSpec.describe XDG::Data do
   subject(:data) { described_class.new environment: }
 
   let :environment do
-    {"HOME" => "/home"}.merge(described_class::HOME_PAIR.to_env)
-                       .merge described_class::DIRS_PAIR.to_env
+    {"HOME" => "/home", **described_class::HOME_PAIR.to_env, **described_class::DIRS_PAIR.to_env}
   end
 
   describe "#home" do
