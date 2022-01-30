@@ -1,5 +1,11 @@
 = Versions
 
+== 6.2.0 (2022-01-30)
+
+* Added combined path splatting for dynamic home path - Brooke Kuhlmann
+* Removed gemspec safe defaults - Brooke Kuhlmann
+* Refactored cache, config, and data specs to splat environment variables - Brooke Kuhlmann
+
 == 6.1.0 (2022-01-23)
 
 * Added Ruby version to Gemfile - Brooke Kuhlmann
