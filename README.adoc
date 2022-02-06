@@ -4,13 +4,6 @@
 
 = XDG
 
-[link=http://badge.fury.io/rb/xdg]
-image::https://badge.fury.io/rb/xdg.svg[Gem Version]
-[link=https://www.alchemists.io/projects/code_quality]
-image::https://img.shields.io/badge/code_style-alchemists-brightgreen.svg[Alchemists Style Guide]
-[link=https://circleci.com/gh/bkuhlmann/xdg]
-image::https://circleci.com/gh/bkuhlmann/xdg.svg?style=svg[Circle CI Status]
-
 Provides a Ruby implementation of the
 https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html[XDG Base Directory
 Specification] for managing common configurations without polluting your dotfiles. XDG is great for
