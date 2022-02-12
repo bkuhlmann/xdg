@@ -1,5 +1,13 @@
 = Versions
 
+== 6.3.0 (2022-02-12)
+
+* Added Caliber - Brooke Kuhlmann
+* Updated to Git Lint 3.2.0 - Brooke Kuhlmann
+* Updated to RSpec 3.11.0 - Brooke Kuhlmann
+* Updated to Refinements 9.2.0 - Brooke Kuhlmann
+* Removed README badges - Brooke Kuhlmann
+
 == 6.2.0 (2022-01-30)
 
 * Added combined path splatting for dynamic home path - Brooke Kuhlmann
