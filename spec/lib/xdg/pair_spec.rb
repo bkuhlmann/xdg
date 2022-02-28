@@ -13,11 +13,11 @@ RSpec.describe XDG::Pair do
 
   describe "#key?" do
     it "answers true when key is present" do
-      expect(described_class["TEST"].key?).to eq(true)
+      expect(described_class["TEST"].key?).to be(true)
     end
 
     it "answers false when key is missing" do
-      expect(described_class.new.key?).to eq(false)
+      expect(described_class.new.key?).to be(false)
     end
   end
 
@@ -29,11 +29,11 @@ RSpec.describe XDG::Pair do
 
   describe "#value?" do
     it "answers true when value is present" do
-      expect(described_class["TEST", "example"].value?).to eq(true)
+      expect(described_class["TEST", "example"].value?).to be(true)
     end
 
     it "answers false when value is missing" do
-      expect(described_class["TEST"].value?).to eq(false)
+      expect(described_class["TEST"].value?).to be(false)
     end
   end
 
@@ -45,19 +45,19 @@ RSpec.describe XDG::Pair do
 
   describe "#empty?" do
     it "answers false when key and value are present" do
-      expect(described_class["TEST", "example"].empty?).to eq(false)
+      expect(described_class["TEST", "example"].empty?).to be(false)
     end
 
     it "answers true with key only" do
-      expect(described_class["TEST"].empty?).to eq(true)
+      expect(described_class["TEST"].empty?).to be(true)
     end
 
     it "answers true with value only" do
-      expect(described_class[nil, "example"].empty?).to eq(true)
+      expect(described_class[nil, "example"].empty?).to be(true)
     end
 
     it "answers true when both key and value are missing" do
-      expect(described_class[].empty?).to eq(true)
+      expect(described_class[].empty?).to be(true)
     end
   end
 
