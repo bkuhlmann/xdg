@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
     "bug_tracker_uri" => "https://github.com/bkuhlmann/xdg/issues",
     "changelog_uri" => "https://www.alchemists.io/projects/xdg/versions",
     "documentation_uri" => "https://www.alchemists.io/projects/xdg",
+    "funding_uri" => "https://github.com/sponsors/bkuhlmann",
     "label" => "XDG",
     "rubygems_mfa_required" => "true",
     "source_code_uri" => "https://github.com/bkuhlmann/xdg"
