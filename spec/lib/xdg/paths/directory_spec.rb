@@ -33,7 +33,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair["TEST_DIRS", "~/test"] }
 
       it "answers expanded paths" do
-        path = Pathname File.join(ENV.fetch("HOME"), "test")
+        path = Pathname File.join(Dir.home, "test")
         expect(directories.default).to contain_exactly(path)
       end
     end
