@@ -19,7 +19,7 @@ end
 
 group :test do
   gem "guard-rspec", "~> 4.7", require: false
-  gem "refinements", "~> 9.4"
+  gem "refinements", "~> 9.6"
   gem "rspec", "~> 3.11"
 end
 
