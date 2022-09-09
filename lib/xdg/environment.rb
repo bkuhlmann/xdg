@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module XDG
+  # A convenience wrapper to all XDG functionality.
   class Environment
     def initialize home: Paths::Home, directories: Paths::Directory, environment: ENV
       @cache = Cache.new(home:, directories:, environment:)

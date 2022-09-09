@@ -3,6 +3,7 @@
 require "forwardable"
 
 module XDG
+  # Provides cache support.
   class Cache
     extend Forwardable
 

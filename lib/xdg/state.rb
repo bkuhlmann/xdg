@@ -3,6 +3,7 @@
 require "forwardable"
 
 module XDG
+  # Provides state support.
   class State
     extend Forwardable
 

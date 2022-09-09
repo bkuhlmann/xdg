@@ -3,6 +3,7 @@
 require "forwardable"
 
 module XDG
+  # Provides configuration support.
   class Config
     extend Forwardable
 

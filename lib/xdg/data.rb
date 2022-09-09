@@ -3,6 +3,7 @@
 require "forwardable"
 
 module XDG
+  # Provides data support.
   class Data
     extend Forwardable
 
