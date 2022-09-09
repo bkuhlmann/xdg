@@ -38,6 +38,12 @@ RSpec.describe XDG::Environment do
     end
   end
 
+  describe "#state_home" do
+    it "answers state home" do
+      expect(environment.state_home).to eq(Pathname("/home/.local/state"))
+    end
+  end
+
   describe "#inspect" do
     it "answers current environment" do
       expect(environment.inspect).to eq(
@@ -45,7 +51,8 @@ RSpec.describe XDG::Environment do
         "XDG_CONFIG_HOME=/home/.config " \
         "XDG_CONFIG_DIRS=/etc/xdg " \
         "XDG_DATA_HOME=/home/.local/share " \
-        "XDG_DATA_DIRS=/usr/local/share:/usr/share"
+        "XDG_DATA_DIRS=/usr/local/share:/usr/share " \
+        "XDG_STATE_HOME=/home/.local/state"
       )
     end
   end

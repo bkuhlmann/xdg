@@ -25,6 +25,7 @@ access to the following environment settings:
 ** `$XDG_CONFIG_DIRS`
 ** `$XDG_DATA_HOME`
 ** `$XDG_DATA_DIRS`
+** `$XDG_STATE_HOME`
 
 == Requirements
 
@@ -62,6 +63,7 @@ xdg.config_home # <= Answers computed `$XDG_CONFIG_HOME` value.
 xdg.config_dirs # <= Answers computed `$XDG_CONFIG_DIRS` value.
 xdg.data_home # <= Answers computed `$XDG_DATA_HOME` value.
 xdg.data_dirs # <= Answers computed `$XDG_DATA_DIRS` value.
+xdg.state_home # <= Answers computed `$XDG_STATE_HOME` value.
 ----
 
 The _computed_ value, in this case, is either the user-defined value of the key or the default
@@ -76,9 +78,10 @@ want to load the entire environment:
 cache = XDG::Cache.new
 config = XDG::Config.new
 data = XDG::Data.new
+state = XDG::State.new
 ----
 
-The `cache`, `config`, and `data` objects share the same API which means you can ask each the
+The `cache`, `config`, `data`, and `state` objects share the same API which means you can ask each the
 following messages:
 
 * `#home` - Answers the home directory as computed via the `$XDG_*_HOME` key.
@@ -100,12 +103,14 @@ environment = XDG::Environment.new
 cache = XDG::Cache.new
 config = XDG::Config.new
 data = XDG::Data.new
+state = XDG::State.new
 
 # Inspection
 environment.inspect # => XDG_CACHE_HOME=/Users/bkuhlmann/.cache XDG_CONFIG_HOME=/Users/bkuhlmann/.config XDG_CONFIG_DIRS=/etc/xdg XDG_DATA_HOME=/Users/bkuhlmann/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share
 cache.inspect # => "XDG_CACHE_HOME=/Users/bkuhlmann/.cache"
 config.inspect # => "XDG_CONFIG_HOME=/Users/bkuhlmann/.config XDG_CONFIG_DIRS=/etc/xdg"
 data.inspect # => "XDG_DATA_HOME=/Users/bkuhlmann/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share"
+state.inspect # => "XDG_STATE_HOME=/Users/bkuhlmann/.local/state"
 
 # Paths
 environment.cache_home # => #<Pathname:/Users/bkuhlmann/.cache>
@@ -113,6 +118,7 @@ environment.config_home # => #<Pathname:/Users/bkuhlmann/.config>
 environment.config_dirs # => [#<Pathname:/etc/xdg>]
 environment.data_home # => #<Pathname:/Users/bkuhlmann/.local/share>
 environment.data_dirs # => [#<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
+environment.state_home # => #<Pathname:/Users/bkuhlmann/.local/state>
 
 cache.home # => #<Pathname:/Users/bkuhlmann/.cache>
 cache.directories # => []
@@ -125,6 +131,10 @@ config.all # => [#<Pathname:/Users/bkuhlmann/.config>, #<Pathname:/etc/xdg>]
 data.home # => #<Pathname:/Users/bkuhlmann/.local/share>
 data.directories # => [#<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
 data.all # => [#<Pathname:/Users/bkuhlmann/.local/share>, #<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
+
+state.home # => #<Pathname:/Users/bkuhlmann/.local/state>
+state.directories # => []
+state.all # => [#<Pathname:/Users/bkuhlmann/.local/state>]
 ----
 
 As you can see from above, each XDG object answers back a `Pathname` which means you have the full
@@ -142,6 +152,7 @@ objects:
 * `$XDG_DATA_HOME="$HOME/.local/share"`
 * `$XDG_DATA_DIRS="/usr/local/share/:/usr/share/"`
 * `$XDG_RUNTIME_DIR`
+* `$XDG_STATE_HOME="$HOME/.local/state"`
 
 The `$XDG_RUNTIME_DIR` deserves special mention as it’s not, _currently_, implemented as part of
 this gem because it is more user/environment specific. Here is how the `$XDG_RUNTIME_DIR` is meant
