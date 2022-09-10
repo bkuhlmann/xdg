@@ -1,5 +1,13 @@
 = Versions
 
+== 6.6.0 (2022-09-09)
+
+* Fixed Reek irresponsible module issues - Brooke Kuhlmann
+* Added Circle CI SimpleCov artifacts - Brooke Kuhlmann
+* Added state home - Rick Ohnemus
+* Added version release notes - Brooke Kuhlmann
+* Updated SimpleCov configuration to use filters and minimum coverage - Brooke Kuhlmann
+
 == 6.5.0 (2022-07-17)
 
 * Updated to Caliber 0.11.0 - Brooke Kuhlmann

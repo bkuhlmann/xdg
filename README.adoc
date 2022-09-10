@@ -49,21 +49,21 @@ gem "xdg"
 
 == Usage
 
-The following describes how to use this XDG implementation.
+The following describes how to use this implementation.
 
-=== Overview
+=== Objects
 
 To get up and running quickly, use `+XDG::Environment+` as follows:
 
 [source,ruby]
 ----
 xdg = XDG::Environment.new
-xdg.cache_home # <= Answers computed `$XDG_CACHE_HOME` value.
-xdg.config_home # <= Answers computed `$XDG_CONFIG_HOME` value.
-xdg.config_dirs # <= Answers computed `$XDG_CONFIG_DIRS` value.
-xdg.data_home # <= Answers computed `$XDG_DATA_HOME` value.
-xdg.data_dirs # <= Answers computed `$XDG_DATA_DIRS` value.
-xdg.state_home # <= Answers computed `$XDG_STATE_HOME` value.
+xdg.cache_home   # Answers computed `$XDG_CACHE_HOME` value.
+xdg.config_home  # Answers computed `$XDG_CONFIG_HOME` value.
+xdg.config_dirs  # Answers computed `$XDG_CONFIG_DIRS` value.
+xdg.data_home    # Answers computed `$XDG_DATA_HOME` value.
+xdg.data_dirs    # Answers computed `$XDG_DATA_DIRS` value.
+xdg.state_home   # Answers computed `$XDG_STATE_HOME` value.
 ----
 
 The _computed_ value, in this case, is either the user-defined value of the key or the default
@@ -106,35 +106,35 @@ data = XDG::Data.new
 state = XDG::State.new
 
 # Inspection
-environment.inspect # => XDG_CACHE_HOME=/Users/bkuhlmann/.cache XDG_CONFIG_HOME=/Users/bkuhlmann/.config XDG_CONFIG_DIRS=/etc/xdg XDG_DATA_HOME=/Users/bkuhlmann/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share
-cache.inspect # => "XDG_CACHE_HOME=/Users/bkuhlmann/.cache"
-config.inspect # => "XDG_CONFIG_HOME=/Users/bkuhlmann/.config XDG_CONFIG_DIRS=/etc/xdg"
-data.inspect # => "XDG_DATA_HOME=/Users/bkuhlmann/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share"
-state.inspect # => "XDG_STATE_HOME=/Users/bkuhlmann/.local/state"
+environment.inspect      # "XDG_CACHE_HOME=/Users/bkuhlmann/.cache XDG_CONFIG_HOME=/Users/bkuhlmann/.config XDG_CONFIG_DIRS=/etc/xdg XDG_DATA_HOME=/Users/bkuhlmann/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share XDG_STATE_HOME=/Users/bkuhlmann/.local/state"
+cache.inspect            # "XDG_CACHE_HOME=/Users/bkuhlmann/.cache"
+config.inspect           # "XDG_CONFIG_HOME=/Users/bkuhlmann/.config XDG_CONFIG_DIRS=/etc/xdg"
+data.inspect             # "XDG_DATA_HOME=/Users/bkuhlmann/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share"
+state.inspect            # "XDG_STATE_HOME=/Users/bkuhlmann/.local/state"
 
 # Paths
-environment.cache_home # => #<Pathname:/Users/bkuhlmann/.cache>
-environment.config_home # => #<Pathname:/Users/bkuhlmann/.config>
-environment.config_dirs # => [#<Pathname:/etc/xdg>]
-environment.data_home # => #<Pathname:/Users/bkuhlmann/.local/share>
-environment.data_dirs # => [#<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
-environment.state_home # => #<Pathname:/Users/bkuhlmann/.local/state>
+environment.cache_home   # #<Pathname:/Users/bkuhlmann/.cache>
+environment.config_home  # #<Pathname:/Users/bkuhlmann/.config>
+environment.config_dirs  # [#<Pathname:/etc/xdg>]
+environment.data_home    # #<Pathname:/Users/bkuhlmann/.local/share>
+environment.data_dirs    # [#<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
+environment.state_home   # #<Pathname:/Users/bkuhlmann/.local/state>
 
-cache.home # => #<Pathname:/Users/bkuhlmann/.cache>
-cache.directories # => []
-cache.all # => [#<Pathname:/Users/bkuhlmann/.cache>]
+cache.home               # #<Pathname:/Users/bkuhlmann/.cache>
+cache.directories        # []
+cache.all                # [#<Pathname:/Users/bkuhlmann/.cache>]
 
-config.home # => #<Pathname:/Users/bkuhlmann/.config>
-config.directories # => [#<Pathname:/etc/xdg>]
-config.all # => [#<Pathname:/Users/bkuhlmann/.config>, #<Pathname:/etc/xdg>]
+config.home              # #<Pathname:/Users/bkuhlmann/.config>
+config.directories       # [#<Pathname:/etc/xdg>]
+config.all               # [#<Pathname:/Users/bkuhlmann/.config>, #<Pathname:/etc/xdg>]
 
-data.home # => #<Pathname:/Users/bkuhlmann/.local/share>
-data.directories # => [#<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
-data.all # => [#<Pathname:/Users/bkuhlmann/.local/share>, #<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
+data.home                # #<Pathname:/Users/bkuhlmann/.local/share>
+data.directories         # [#<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
+data.all                 # [#<Pathname:/Users/bkuhlmann/.local/share>, #<Pathname:/usr/local/share>, #<Pathname:/usr/share>]
 
-state.home # => #<Pathname:/Users/bkuhlmann/.local/state>
-state.directories # => []
-state.all # => [#<Pathname:/Users/bkuhlmann/.local/state>]
+state.home               # #<Pathname:/Users/bkuhlmann/.local/state>
+state.directories        # []
+state.all                # [#<Pathname:/Users/bkuhlmann/.local/state>]
 ----
 
 As you can see from above, each XDG object answers back a `Pathname` which means you have the full
@@ -184,12 +184,12 @@ memory and cannot necessarily be swapped out to disk.
 
 The behavior of most XDG environment variables can be lumped into two categories:
 
-* `$XDG_*_HOME`
 * `$XDG_*_DIRS`
+* `$XDG_*_HOME`
 
 Each is described in detail below.
 
-==== `$XDG_*_DIRS`
+==== Directories
 
 These variables are used to define a colon (`:`) delimited list of directories. Order is important
 as the first directory defined will take precedent over the following directory and so forth. For
@@ -214,7 +214,7 @@ Yields the following, colon delimited, array:
 In the above example, the `"/example/one/.config"` path takes _highest_ priority since it was
 defined first.
 
-==== `$XDG_*_HOME`
+==== Homes
 
 These variables take precedence over the corresponding `$XDG_*_DIRS` environment variables. Using
 a modified version of the `$XDG_*_DIRS` example, shown above, we could have the following setup:
