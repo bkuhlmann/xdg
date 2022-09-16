@@ -253,7 +253,7 @@ To contribute, run:
 
 [source,bash]
 ----
-git clone https://github.com/bkuhlmann/xdg.git
+git clone https://github.com/bkuhlmann/xdg
 cd xdg
 bin/setup
 ----
