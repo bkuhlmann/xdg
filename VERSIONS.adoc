@@ -1,5 +1,9 @@
 = Versions
 
+== 6.6.2 (2022-10-22)
+
+* Updated to Refinements 9.7.0 - Brooke Kuhlmann
+
 == 6.6.1 (2022-10-22)
 
 * Fixed Rakefile RSpec initialization - Brooke Kuhlmann
