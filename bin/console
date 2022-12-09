@@ -4,7 +4,7 @@
 require "bundler/setup"
 Bundler.require :tools
 
-require "xdg"
 require "irb"
+require "xdg"
 
 IRB.start __FILE__

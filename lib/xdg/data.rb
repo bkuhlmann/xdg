@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "forwardable"
+require "xdg/pair"
 
 module XDG
   # Provides data support.

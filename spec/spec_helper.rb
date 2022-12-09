@@ -13,8 +13,8 @@ unless ENV["NO_COVERAGE"]
   end
 end
 
-require "xdg"
 require "refinements"
+require "xdg"
 
 using Refinements::Pathnames
 
