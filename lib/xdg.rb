@@ -9,3 +9,7 @@ require "xdg/paths/combined"
 require "xdg/paths/directory"
 require "xdg/paths/home"
 require "xdg/state"
+
+module XDG
+  DELIMITER = "="
+end

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 module XDG
-  PAIR_DELIMITER = "="
-
   # A generic key-value pair (KVP).
   Pair = Struct.new :key, :value do
     def to_env = Hash[*values]
@@ -13,6 +11,6 @@ module XDG
 
     def empty? = !(key? && value?)
 
-    def inspect = key? || value? ? "#{key}#{PAIR_DELIMITER}#{value}" : ""
+    def inspect = key? || value? ? "#{key}#{DELIMITER}#{value}" : ""
   end
 end
