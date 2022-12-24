@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
+# :reek:ModuleInitialize
 module XDG
   # A generic key-value pair (KVP).
-  Pair = Struct.new :key, :value do
-    def to_env = Hash[*values]
+  Pair = Data.define :key, :value do
+    def initialize key: nil, value: nil
+      super
+    end
+
+    def to_env = {key => value}
 
     def key? = key.to_s.size.positive?
 
