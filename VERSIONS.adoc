@@ -1,5 +1,17 @@
 = Versions
 
+== 7.0.0 (2022-12-25)
+
+* Fixed RuboCop Style/RequireOrder issues - Brooke Kuhlmann
+* Added RSpec binstub - Brooke Kuhlmann
+* Updated pair delimiter as global constant - Brooke Kuhlmann
+* Updated pair to be a data object instead of a struct - Brooke Kuhlmann
+* Updated to Debug 1.7.0 - Brooke Kuhlmann
+* Updated to RSpec 3.12.0 - Brooke Kuhlmann
+* Updated to Refinements 10.0.0 - Brooke Kuhlmann
+* Updated to Ruby 3.1.3 - Brooke Kuhlmann
+* Updated to Ruby 3.2.0 - Brooke Kuhlmann
+
 == 6.6.2 (2022-10-22)
 
 * Updated to Refinements 9.7.0 - Brooke Kuhlmann
