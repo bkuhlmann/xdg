@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "xdg"
-  spec.version = "7.0.1"
+  spec.version = "7.0.2"
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
   spec.homepage = "https://alchemists.io/projects/xdg"
