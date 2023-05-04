@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |spec|
   spec.name = "xdg"
-  spec.version = "7.0.3"
+  spec.version = "7.1.0"
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
   spec.homepage = "https://alchemists.io/projects/xdg"
-  spec.summary = "Provides an implementation of the XDG Base Directory Specification."
+  spec.summary = "An XDG Base Directory Specification implementation."
   spec.license = "Hippocratic-2.1"
 
   spec.metadata = {
