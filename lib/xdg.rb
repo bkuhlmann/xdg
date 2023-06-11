@@ -10,6 +10,9 @@ require "xdg/paths/directory"
 require "xdg/paths/home"
 require "xdg/state"
 
+# Main namespace.
 module XDG
   DELIMITER = "="
+
+  def self.new = Environment.new
 end
