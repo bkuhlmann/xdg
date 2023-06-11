@@ -22,7 +22,7 @@ module XDG
 
     def state_home = state.home
 
-    def inspect = "#{cache.inspect} #{config.inspect} #{data.inspect} #{state.inspect}"
+    def inspect = [cache, config, data, state].map(&:inspect).join " "
 
     private
 
