@@ -22,15 +22,15 @@ module XDG
                                 .map { |path| expand path }
       end
 
-      def inspect = [key, dynamic.join(DELIMITER)].reject(&:empty?).join(XDG::DELIMITER)
+      def inspect = [key, dynamic.join(DELIMITER)].reject(&:empty?).join XDG::DELIMITER
 
       private
 
       attr_reader :pair, :environment
 
-      def key = String(pair.key)
+      def key = String pair.key
 
-      def value = String(pair.value)
+      def value = String pair.value
 
       def expand(path) = Pathname(path).expand_path
     end

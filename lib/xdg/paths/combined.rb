@@ -17,7 +17,7 @@ module XDG
 
       def all = directories.prepend(*home)
 
-      def inspect = [initial_home.inspect, initial_directories.inspect].reject(&:empty?).join(" ")
+      def inspect = [initial_home.inspect, initial_directories.inspect].reject(&:empty?).join " "
 
       private
 
