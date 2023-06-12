@@ -1,5 +1,12 @@
 = Versions
 
+== 7.1.1 (2023-06-19)
+
+* Added Reek module initialize configuration - Brooke Kuhlmann
+* Updated to Caliber 0.35.0 - Brooke Kuhlmann
+* Updated to Git Lint 6.0.0 - Brooke Kuhlmann
+* Updated to Refinements 11.0.0 - Brooke Kuhlmann
+
 == 7.1.0 (2023-06-11)
 
 * Added module method for initializing new instances - Brooke Kuhlmann
