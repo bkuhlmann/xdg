@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :reek:ModuleInitialize
 module XDG
   # A generic key-value pair (KVP).
   Pair = Data.define :key, :value do

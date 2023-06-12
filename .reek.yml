@@ -1,3 +1,8 @@
 exclude_paths:
   - tmp
   - vendor
+
+detectors:
+  ModuleInitialize:
+    exclude:
+      - "XDG"
