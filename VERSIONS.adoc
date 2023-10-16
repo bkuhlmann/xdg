@@ -1,5 +1,13 @@
 = Versions
 
+== 7.1.2 (2023-10-15)
+
+* Fixed RuboCop Packaging/BundlerSetupInTests issues - Brooke Kuhlmann
+* Updated GitHub issue template with simplified sections - Brooke Kuhlmann
+* Updated Rake RSpec task configuration to not be verbose - Brooke Kuhlmann
+* Updated to Caliber 0.42.0 - Brooke Kuhlmann
+* Refactored Gemfile to use ruby file syntax - Brooke Kuhlmann
+
 == 7.1.1 (2023-06-19)
 
 * Added Reek module initialize configuration - Brooke Kuhlmann
