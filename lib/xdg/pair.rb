@@ -19,6 +19,9 @@ module XDG
 
     alias_method :to_str, :to_s
 
-    def inspect = key? || value? ? "#{key}#{DELIMITER}#{value}" : ""
+    def inspect
+      type = self.class
+      key? || value? ? "#<data #{type} #{key}#{DELIMITER}#{value}>" : "#<data #{type}>"
+    end
   end
 end

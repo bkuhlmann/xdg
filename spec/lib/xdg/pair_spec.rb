@@ -89,19 +89,19 @@ RSpec.describe XDG::Pair do
 
   describe "#inspect" do
     it "answers key, delimiter, and value when both are present" do
-      expect(pair.inspect).to eq("TEST=example")
+      expect(pair.inspect).to eq("#<data XDG::Pair TEST=example>")
     end
 
     it "answers key and delimiter with key only" do
-      expect(described_class["TEST"].inspect).to eq("TEST=")
+      expect(described_class["TEST"].inspect).to eq("#<data XDG::Pair TEST=>")
     end
 
     it "answers delimiter and value with value only" do
-      expect(described_class[nil, "example"].inspect).to eq("=example")
+      expect(described_class[nil, "example"].inspect).to eq("#<data XDG::Pair =example>")
     end
 
-    it "answers empty string with no key and value" do
-      expect(described_class.new.inspect).to eq("")
+    it "answers with no key and value" do
+      expect(described_class.new.inspect).to eq("#<data XDG::Pair>")
     end
   end
 end
