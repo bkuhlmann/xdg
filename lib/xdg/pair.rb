@@ -7,13 +7,13 @@ module XDG
       super
     end
 
-    def to_env = {key => value}
-
     def key? = key.to_s.size.positive?
 
     def value? = value.to_s.size.positive?
 
     def empty? = !(key? && value?)
+
+    def to_env = {key => value}
 
     def inspect = key? || value? ? "#{key}#{DELIMITER}#{value}" : ""
   end

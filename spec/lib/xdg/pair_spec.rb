@@ -37,12 +37,6 @@ RSpec.describe XDG::Pair do
     end
   end
 
-  describe "#to_env" do
-    it "answers environment" do
-      expect(pair.to_env).to eq("TEST" => "example")
-    end
-  end
-
   describe "#empty?" do
     it "answers false when key and value are present" do
       expect(described_class["TEST", "example"].empty?).to be(false)
@@ -58,6 +52,12 @@ RSpec.describe XDG::Pair do
 
     it "answers true when both key and value are missing" do
       expect(described_class[].empty?).to be(true)
+    end
+  end
+
+  describe "#to_env" do
+    it "answers environment" do
+      expect(pair.to_env).to eq("TEST" => "example")
     end
   end
 
