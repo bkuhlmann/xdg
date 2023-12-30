@@ -85,10 +85,10 @@ RSpec.describe XDG::Paths::Combined do
   end
 
   describe "#inspect" do
-    context "with home and directories pairs" do
-      it "answers home and directories paths" do
-        expect(combined.inspect).to eq("TEST_HOME=/one TEST_DIRS=/two:/three")
-      end
+    it "answers home and directory paths with home and directory pairs" do
+      expect(combined.inspect).to match(
+        %r(\A\#<#{described_class}:\d+ TEST_HOME=/one TEST_DIRS=/two:/three>\Z)
+      )
     end
 
     context "with empty home and directories pairs" do
@@ -96,7 +96,7 @@ RSpec.describe XDG::Paths::Combined do
       let(:directories) { XDG::Paths::Directory.new XDG::Pair.new, environment }
 
       it "answers path only" do
-        expect(combined.inspect).to eq("/home")
+        expect(combined.inspect).to match(%r(\A\#<#{described_class}:\d+ /home>\Z))
       end
     end
   end

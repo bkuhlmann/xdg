@@ -100,17 +100,15 @@ RSpec.describe XDG::Paths::Home do
   end
 
   describe "#inspect" do
-    context "with custom pair" do
-      it "answers key and value" do
-        expect(path.inspect).to eq("TEST=/home/test")
-      end
+    it "answers key and value with custom pair" do
+      expect(path.inspect).to match(%r(\A\#<#{described_class}:\d+ TEST=/home/test>\Z))
     end
 
     context "with empty pair" do
       let(:pair) { XDG::Pair.new }
 
       it "answers value only" do
-        expect(path.inspect).to eq("/home")
+        expect(path.inspect).to match(%r(\A\#<#{described_class}:\d+ /home>\Z))
       end
     end
   end

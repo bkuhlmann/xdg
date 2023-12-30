@@ -26,7 +26,12 @@ module XDG
 
       alias to_str to_s
 
-      def inspect = to_s
+      def inspect
+        pairs = to_s
+        type = self.class
+
+        pairs.empty? ? "#<#{type}:#{object_id}>" : "#<#{type}:#{object_id} #{self}>"
+      end
 
       private
 
