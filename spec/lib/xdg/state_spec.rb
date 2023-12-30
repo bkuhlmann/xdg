@@ -38,4 +38,12 @@ RSpec.describe XDG::State do
   describe "#to_str" do
     it_behaves_like "a string", :to_str
   end
+
+  describe "#inspect" do
+    it "answers current environment" do
+      expect(state.inspect).to match(
+        %r(\A\#<#{described_class}:\d+\sXDG_STATE_HOME=/home/.local/state>\Z)x
+      )
+    end
+  end
 end

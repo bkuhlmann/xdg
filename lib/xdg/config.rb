@@ -11,12 +11,14 @@ module XDG
     HOME_PAIR = Pair["XDG_CONFIG_HOME", ".config"].freeze
     DIRS_PAIR = Pair["XDG_CONFIG_DIRS", "/etc/xdg"].freeze
 
-    delegate %i[home directories all to_s to_str inspect] => :combined
+    delegate %i[home directories all to_s to_str] => :combined
 
     def initialize home: Paths::Home, directories: Paths::Directory, environment: ENV
       @combined = Paths::Combined.new home.new(HOME_PAIR, environment),
                                       directories.new(DIRS_PAIR, environment)
     end
+
+    def inspect = "#<#{self.class}:#{object_id} #{self}>"
 
     private
 

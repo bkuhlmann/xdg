@@ -38,4 +38,12 @@ RSpec.describe XDG::Cache do
   describe "#to_str" do
     it_behaves_like "a string", :to_str
   end
+
+  describe "#inspect" do
+    it "answers current environment" do
+      expect(cache.inspect).to match(
+        %r(\A\#<#{described_class}:\d+ XDG_CACHE_HOME=/home/.cache>\Z)
+      )
+    end
+  end
 end

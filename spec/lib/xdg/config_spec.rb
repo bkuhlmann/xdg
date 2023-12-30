@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe XDG::Config do
-  subject(:configuration) { described_class.new environment: }
+  subject(:config) { described_class.new environment: }
 
   let :environment do
     {"HOME" => "/home", **described_class::HOME_PAIR.to_env, **described_class::DIRS_PAIR.to_env}
@@ -11,28 +11,25 @@ RSpec.describe XDG::Config do
 
   describe "#home" do
     it "answers home directory" do
-      expect(configuration.home).to eq(Pathname("/home/.config"))
+      expect(config.home).to eq(Pathname("/home/.config"))
     end
   end
 
   describe "#directories" do
     it "answers directories" do
-      expect(configuration.directories).to contain_exactly(Pathname("/etc/xdg"))
+      expect(config.directories).to contain_exactly(Pathname("/etc/xdg"))
     end
   end
 
   describe "#all" do
     it "answers all directories" do
-      expect(configuration.all).to contain_exactly(
-        Pathname("/home/.config"),
-        Pathname("/etc/xdg")
-      )
+      expect(config.all).to contain_exactly(Pathname("/home/.config"), Pathname("/etc/xdg"))
     end
   end
 
   shared_examples "a string" do |message|
     it "answers environment settings" do
-      expect(configuration.public_send(message)).to eq(
+      expect(config.public_send(message)).to eq(
         "XDG_CONFIG_HOME=/home/.config XDG_CONFIG_DIRS=/etc/xdg"
       )
     end
@@ -44,5 +41,13 @@ RSpec.describe XDG::Config do
 
   describe "#to_str" do
     it_behaves_like "a string", :to_str
+  end
+
+  describe "#inspect" do
+    it "answers current environment" do
+      expect(config.inspect).to match(
+        %r(\A\#<#{described_class}:\d+\sXDG_CONFIG_HOME=/home/.config\sXDG_CONFIG_DIRS=/etc/xdg>\Z)x
+      )
+    end
   end
 end

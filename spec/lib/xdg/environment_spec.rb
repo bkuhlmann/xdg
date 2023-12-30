@@ -66,15 +66,24 @@ RSpec.describe XDG::Environment do
   end
 
   describe "#inspect" do
+    let :pattern do
+      %r(
+        \A
+        \#<
+        #{described_class}:\d+\s
+        XDG_CACHE_HOME=/home/.cache\s
+        XDG_CONFIG_HOME=/home/.config\s
+        XDG_CONFIG_DIRS=/etc/xdg\s
+        XDG_DATA_HOME=/home/.local/share\s
+        XDG_DATA_DIRS=/usr/local/share:/usr/share\s
+        XDG_STATE_HOME=/home/.local/state
+        >
+        \Z
+      )x
+    end
+
     it "answers current environment" do
-      expect(environment.inspect).to eq(
-        "XDG_CACHE_HOME=/home/.cache " \
-        "XDG_CONFIG_HOME=/home/.config " \
-        "XDG_CONFIG_DIRS=/etc/xdg " \
-        "XDG_DATA_HOME=/home/.local/share " \
-        "XDG_DATA_DIRS=/usr/local/share:/usr/share " \
-        "XDG_STATE_HOME=/home/.local/state"
-      )
+      expect(environment.inspect).to match(pattern)
     end
   end
 end

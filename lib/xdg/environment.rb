@@ -26,7 +26,7 @@ module XDG
 
     alias to_str to_s
 
-    def inspect = to_s
+    def inspect = "#<#{self.class}:#{object_id} #{self}>"
 
     private
 
