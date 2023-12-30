@@ -22,7 +22,11 @@ module XDG
                                 .map { |path| expand path }
       end
 
-      def inspect = [key, dynamic.join(DELIMITER)].reject(&:empty?).join XDG::DELIMITER
+      def to_s = [key, dynamic.join(DELIMITER)].reject(&:empty?).join XDG::DELIMITER
+
+      alias to_str to_s
+
+      def inspect = to_s
 
       private
 

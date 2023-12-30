@@ -22,7 +22,11 @@ module XDG
 
       def dynamic = String(environment[key]).then { |path| path.empty? ? default : expand(path) }
 
-      def inspect = [pair.key, dynamic].compact.join XDG::DELIMITER
+      def to_s = [pair.key, dynamic].compact.join XDG::DELIMITER
+
+      alias to_str to_s
+
+      def inspect = to_s
 
       private
 

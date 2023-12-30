@@ -59,6 +59,31 @@ RSpec.describe XDG::Paths::Combined do
     end
   end
 
+  shared_examples "a string" do |message|
+    context "with home and directories pairs" do
+      it "answers home and directories paths" do
+        expect(combined.public_send(message)).to eq("TEST_HOME=/one TEST_DIRS=/two:/three")
+      end
+    end
+
+    context "with empty home and directories pairs" do
+      let(:home) { XDG::Paths::Home.new XDG::Pair.new, environment }
+      let(:directories) { XDG::Paths::Directory.new XDG::Pair.new, environment }
+
+      it "answers path only" do
+        expect(combined.public_send(message)).to eq("/home")
+      end
+    end
+  end
+
+  describe "#to_s" do
+    it_behaves_like "a string", :to_s
+  end
+
+  describe "#to_str" do
+    it_behaves_like "a string", :to_str
+  end
+
   describe "#inspect" do
     context "with home and directories pairs" do
       it "answers home and directories paths" do

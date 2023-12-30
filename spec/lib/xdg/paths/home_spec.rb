@@ -77,6 +77,28 @@ RSpec.describe XDG::Paths::Home do
     end
   end
 
+  shared_examples "a string" do |message|
+    it "answers key and value with custom pair" do
+      expect(path.public_send(message)).to eq("TEST=/home/test")
+    end
+
+    context "with empty pair" do
+      let(:pair) { XDG::Pair.new }
+
+      it "answers value only" do
+        expect(path.public_send(message)).to eq("/home")
+      end
+    end
+  end
+
+  describe "#to_s" do
+    it_behaves_like "a string", :to_s
+  end
+
+  describe "#to_str" do
+    it_behaves_like "a string", :to_str
+  end
+
   describe "#inspect" do
     context "with custom pair" do
       it "answers key and value" do

@@ -108,6 +108,32 @@ RSpec.describe XDG::Paths::Directory do
     end
   end
 
+  shared_examples "a string" do |message|
+    context "with custom pair" do
+      let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two:/three"] }
+
+      it "answers custom pair" do
+        expect(directories.public_send(message)).to eq("TEST_DIRS=/one:/two:/three")
+      end
+    end
+
+    context "with empty pair" do
+      let(:pair) { XDG::Pair.new }
+
+      it "answers empty string" do
+        expect(directories.public_send(message)).to eq("")
+      end
+    end
+  end
+
+  describe "#to_s" do
+    it_behaves_like "a string", :to_s
+  end
+
+  describe "#to_str" do
+    it_behaves_like "a string", :to_str
+  end
+
   describe "#inspect" do
     context "with custom pair" do
       let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two:/three"] }

@@ -17,7 +17,11 @@ module XDG
 
       def all = directories.prepend(*home)
 
-      def inspect = [initial_home.inspect, initial_directories.inspect].reject(&:empty?).join " "
+      def to_s = [initial_home.to_s, initial_directories.to_s].reject(&:empty?).join " "
+
+      alias to_str to_s
+
+      def inspect = to_s
 
       private
 
