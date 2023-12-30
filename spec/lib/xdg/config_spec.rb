@@ -30,9 +30,19 @@ RSpec.describe XDG::Config do
     end
   end
 
-  describe "#inspect" do
+  shared_examples "a string" do |message|
     it "answers environment settings" do
-      expect(configuration.inspect).to eq("XDG_CONFIG_HOME=/home/.config XDG_CONFIG_DIRS=/etc/xdg")
+      expect(configuration.public_send(message)).to eq(
+        "XDG_CONFIG_HOME=/home/.config XDG_CONFIG_DIRS=/etc/xdg"
+      )
     end
+  end
+
+  describe "#to_s" do
+    it_behaves_like "a string", :to_s
+  end
+
+  describe "#to_str" do
+    it_behaves_like "a string", :to_str
   end
 end

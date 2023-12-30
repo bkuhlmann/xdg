@@ -10,7 +10,7 @@ module XDG
 
     HOME_PAIR = Pair["XDG_STATE_HOME", ".local/state"].freeze
 
-    delegate %i[home directories all inspect] => :combined
+    delegate %i[home directories all to_s to_str inspect] => :combined
 
     def initialize home: Paths::Home, directories: Paths::Directory, environment: ENV
       @combined = Paths::Combined.new home.new(HOME_PAIR, environment),

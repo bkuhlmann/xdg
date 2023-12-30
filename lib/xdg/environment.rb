@@ -22,7 +22,11 @@ module XDG
 
     def state_home = state.home
 
-    def inspect = [cache, config, data, state].map(&:inspect).join " "
+    def to_s = "#{cache} #{config} #{data} #{state}"
+
+    alias to_str to_s
+
+    def inspect = to_s
 
     private
 

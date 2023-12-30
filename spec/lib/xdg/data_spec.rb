@@ -34,11 +34,19 @@ RSpec.describe XDG::Data do
     end
   end
 
-  describe "#inspect" do
+  shared_examples "a string" do |message|
     it "answers environment settings" do
-      expect(data.inspect).to eq(
+      expect(data.public_send(message)).to eq(
         "XDG_DATA_HOME=/home/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share"
       )
     end
+  end
+
+  describe "#to_s" do
+    it_behaves_like "a string", :to_s
+  end
+
+  describe "#to_str" do
+    it_behaves_like "a string", :to_str
   end
 end

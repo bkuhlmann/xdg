@@ -44,6 +44,27 @@ RSpec.describe XDG::Environment do
     end
   end
 
+  shared_examples "a string" do |message|
+    it "answers current environment" do
+      expect(environment.public_send(message)).to eq(
+        "XDG_CACHE_HOME=/home/.cache " \
+        "XDG_CONFIG_HOME=/home/.config " \
+        "XDG_CONFIG_DIRS=/etc/xdg " \
+        "XDG_DATA_HOME=/home/.local/share " \
+        "XDG_DATA_DIRS=/usr/local/share:/usr/share " \
+        "XDG_STATE_HOME=/home/.local/state"
+      )
+    end
+  end
+
+  describe "#to_s" do
+    it_behaves_like "a string", :to_s
+  end
+
+  describe "#to_str" do
+    it_behaves_like "a string", :to_str
+  end
+
   describe "#inspect" do
     it "answers current environment" do
       expect(environment.inspect).to eq(

@@ -25,9 +25,17 @@ RSpec.describe XDG::State do
     end
   end
 
-  describe "#inspect" do
+  shared_examples "a string" do |message|
     it "answers environment settings" do
-      expect(state.inspect).to eq("XDG_STATE_HOME=/home/.local/state")
+      expect(state.public_send(message)).to eq("XDG_STATE_HOME=/home/.local/state")
     end
+  end
+
+  describe "#to_s" do
+    it_behaves_like "a string", :to_s
+  end
+
+  describe "#to_str" do
+    it_behaves_like "a string", :to_str
   end
 end
