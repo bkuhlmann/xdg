@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe XDG::Paths::Directory do
-  subject(:directories) { described_class.new pair, environment }
+  subject(:path) { described_class.new pair, environment }
 
   let(:home) { XDG::Pair["HOME", "/home"] }
   let(:environment) { home.to_env }
@@ -13,7 +13,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair["TEST_DIRS", "/one"] }
 
       it "answers array with one path" do
-        expect(directories.default).to contain_exactly(Pathname("/one"))
+        expect(path.default).to contain_exactly(Pathname("/one"))
       end
     end
 
@@ -21,7 +21,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two:/three"] }
 
       it "answers array with multiple paths" do
-        expect(directories.default).to contain_exactly(
+        expect(path.default).to contain_exactly(
           Pathname("/one"),
           Pathname("/two"),
           Pathname("/three")
@@ -33,8 +33,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair["TEST_DIRS", "~/test"] }
 
       it "answers expanded paths" do
-        path = Pathname File.join(Dir.home, "test")
-        expect(directories.default).to contain_exactly(path)
+        expect(path.default).to contain_exactly(Pathname(File.join(Dir.home, "test")))
       end
     end
 
@@ -42,7 +41,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair["TEST_DIRS", nil] }
 
       it "answers empty array" do
-        expect(directories.default).to eq([])
+        expect(path.default).to eq([])
       end
     end
 
@@ -50,7 +49,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair[nil, nil] }
 
       it "answers empty array" do
-        expect(directories.default).to eq([])
+        expect(path.default).to eq([])
       end
     end
   end
@@ -61,7 +60,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:environment) { home.to_env.merge "TEST_DIRS" => "/one:/two" }
 
       it "answers environment paths" do
-        expect(directories.dynamic).to contain_exactly(Pathname("/one"), Pathname("/two"))
+        expect(path.dynamic).to contain_exactly(Pathname("/one"), Pathname("/two"))
       end
     end
 
@@ -70,7 +69,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:environment) { home.to_env.merge "TEST_DIRS" => nil }
 
       it "answers default paths" do
-        expect(directories.dynamic).to contain_exactly(Pathname("/one"), Pathname("/two"))
+        expect(path.dynamic).to contain_exactly(Pathname("/one"), Pathname("/two"))
       end
     end
 
@@ -79,7 +78,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:environment) { {} }
 
       it "answers empty array" do
-        expect(directories.dynamic).to eq([])
+        expect(path.dynamic).to eq([])
       end
     end
 
@@ -87,7 +86,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two:/one"] }
 
       it "answers unique directories" do
-        expect(directories.dynamic).to contain_exactly(Pathname("/one"), Pathname("/two"))
+        expect(path.dynamic).to contain_exactly(Pathname("/one"), Pathname("/two"))
       end
     end
 
@@ -95,7 +94,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair["TEST_DIRS", nil] }
 
       it "answers empty array" do
-        expect(directories.dynamic).to eq([])
+        expect(path.dynamic).to eq([])
       end
     end
 
@@ -103,7 +102,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair[nil, nil] }
 
       it "answers empty array" do
-        expect(directories.dynamic).to eq([])
+        expect(path.dynamic).to eq([])
       end
     end
   end
@@ -113,7 +112,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two:/three"] }
 
       it "answers custom pair" do
-        expect(directories.public_send(message)).to eq("TEST_DIRS=/one:/two:/three")
+        expect(path.public_send(message)).to eq("TEST_DIRS=/one:/two:/three")
       end
     end
 
@@ -121,7 +120,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair.new }
 
       it "answers empty string" do
-        expect(directories.public_send(message)).to eq("")
+        expect(path.public_send(message)).to eq("")
       end
     end
   end
@@ -139,7 +138,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair["TEST_DIRS", "/one:/two:/three"] }
 
       it "answers custom pair" do
-        expect(directories.inspect).to match(
+        expect(path.inspect).to match(
           %r(\A\#<#{described_class}:\d+ TEST_DIRS=/one:/two:/three>\Z)
         )
       end
@@ -149,7 +148,7 @@ RSpec.describe XDG::Paths::Directory do
       let(:pair) { XDG::Pair.new }
 
       it "answers no key or value" do
-        expect(directories.inspect).to match(%r(\A\#<#{described_class}:\d+>\Z))
+        expect(path.inspect).to match(%r(\A\#<#{described_class}:\d+>\Z))
       end
     end
   end
