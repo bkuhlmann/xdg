@@ -15,6 +15,10 @@ module XDG
 
     def to_env = {key => value}
 
+    def to_s = key? || value? ? "#{key}#{DELIMITER}#{value}" : ""
+
+    alias_method :to_str, :to_s
+
     def inspect = key? || value? ? "#{key}#{DELIMITER}#{value}" : ""
   end
 end
