@@ -1,0 +1,71 @@
+#! /usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+Bundler.require :tools
+
+require "xdg"
+
+home = Dir.home
+demo = "/Users/demo"
+
+xdg = XDG.new
+cache = XDG::Cache.new
+config = XDG::Config.new
+data = XDG::Data.new
+state = XDG::State.new
+
+puts "# Initialization\n\n"
+
+puts "xdg = XDG.new"
+puts "cache = XDG::Cache.new"
+puts "config = XDG::Config.new"
+puts "data = XDG::Data.new"
+puts "state = XDG::State.new"
+
+puts "\n# Paths\n\n"
+
+puts %(xdg.cache_home      # "#{xdg.cache_home.sub(home, demo).inspect}")
+puts %(xdg.config_home     # "#{xdg.config_home.sub(home, demo).inspect}")
+puts %(xdg.config_dirs     # #{xdg.config_dirs.map(&:inspect)})
+puts %(xdg.data_home       # "#{xdg.data_home.sub(home, demo).inspect}")
+puts %(xdg.data_dirs       # #{xdg.data_dirs.map(&:inspect)})
+puts %(xdg.state_home      # "#{xdg.state_home.sub(home, demo).inspect}")
+puts
+puts %(cache.home          # "#{cache.home.sub(home, demo).inspect}")
+puts %(cache.directories   # #{cache.directories.map { |path| path.sub(home, demo).inspect }})
+puts %(cache.all           # #{cache.all.map { |path| path.sub(home, demo).inspect }})
+puts
+puts %(config.home         # "#{config.home.sub(home, demo).inspect}")
+puts %(config.directories  # #{config.directories.map { |path| path.sub(home, demo).inspect }})
+puts %(config.all          # #{config.all.map { |path| path.sub(home, demo).inspect }})
+puts
+puts %(data.home           # "#{data.home.sub(home, demo).inspect}")
+puts %(data.directories    # #{data.directories.map { |path| path.sub(home, demo).inspect }})
+puts %(data.all            # #{data.all.map { |path| path.sub(home, demo).inspect }})
+puts
+puts %(state.home          # "#{state.home.sub(home, demo).inspect}")
+puts %(state.directories   # #{state.directories.map { |path| path.sub(home, demo).inspect }})
+puts %(state.all           # #{state.all.map { |path| path.sub(home, demo).inspect }})
+
+puts "\n# Casts (explicit and implicit)\n\n"
+
+puts %(xdg.to_s            # "#{xdg.to_s.gsub home, demo}")
+puts %(cache.to_s          # "#{cache.to_s.gsub home, demo}")
+puts %(config.to_s         # "#{config.to_s.gsub home, demo}")
+puts %(data.to_s           # "#{data.to_s.gsub home, demo}")
+puts %(state.to_s          # "#{state.to_s.gsub home, demo}")
+puts
+puts %(xdg.to_str          # "#{xdg.to_str.gsub home, demo}")
+puts %(cache.to_str        # "#{cache.to_str.gsub home, demo}")
+puts %(config.to_str       # "#{config.to_str.gsub home, demo}")
+puts %(data.to_str         # "#{data.to_str.gsub home, demo}")
+puts %(state.to_str        # "#{state.to_str.gsub home, demo}")
+
+puts "\n# Inspection\n\n"
+
+puts %(xdg.inspect         # "#{xdg.inspect.gsub home, demo}")
+puts %(cache.inspect       # "#{cache.inspect.gsub home, demo}")
+puts %(config.inspect      # "#{config.inspect.gsub home, demo}")
+puts %(data.inspect        # "#{data.inspect.gsub home, demo}")
+puts %(state.inspect       # "#{state.inspect.gsub home, demo}")
