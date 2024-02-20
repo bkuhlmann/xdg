@@ -1,5 +1,12 @@
 = Versions
 
+== 8.1.0 (2024-02-19)
+
+* 🟢 Added repl_type_completor gem - Brooke Kuhlmann
+* 🔼 Updated to Caliber 0.50.0 - Brooke Kuhlmann
+* 🔼 Updated to Git Lint 7.0.0 - Brooke Kuhlmann
+* 🔼 Updated to Reek 6.3.0 - Brooke Kuhlmann
+
 == 8.0.0 (2024-01-01)
 
 * Added demonstration script - Brooke Kuhlmann
