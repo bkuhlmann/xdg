@@ -1,5 +1,14 @@
 = Versions
 
+== 8.2.0 (2024-03-03)
+
+* ✅ Fixed RSpec/DescribedClass issue - Brooke Kuhlmann
+* 🔼 Updated RuboCop to use XDG local configuration - Brooke Kuhlmann
+* 🔼 Updated to Caliber 0.51.0 - Brooke Kuhlmann
+* 🔼 Updated to Git Lint 7.1.0 - Brooke Kuhlmann
+* 🔼 Updated to RSpec 3.13.0 - Brooke Kuhlmann
+* 🔼 Updated to Refinements 12.1.0 - Brooke Kuhlmann
+
 == 8.1.0 (2024-02-19)
 
 * 🟢 Added repl_type_completor gem - Brooke Kuhlmann
