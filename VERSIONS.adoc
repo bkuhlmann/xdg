@@ -1,5 +1,11 @@
 = Versions
 
+== 8.4.0 (2024-05-21)
+
+* 🟢 Added IRB Kit gem - Brooke Kuhlmann
+* 🔼 Updated RSpec configuration to ignore backtraces in pending specs - Brooke Kuhlmann
+* 🔼 Updated to Ruby 3.3.1 - Brooke Kuhlmann
+
 == 8.3.0 (2024-04-21)
 
 * 🔼 Updated setup script as a Ruby script - Brooke Kuhlmann
