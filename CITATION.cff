@@ -19,5 +19,6 @@ keywords:
  - configuration
  - data
  - runtime
-repository-code: https://alchemists.io/projects/xdg
+repository-code: https://github.com/bkuhlmann/xdg
 repository-artifact: https://rubygems.org/gems/xdg
+url: https://alchemists.io/projects/xdg
