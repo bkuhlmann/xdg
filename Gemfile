@@ -18,7 +18,6 @@ group :development do
 end
 
 group :test do
-  gem "guard-rspec", "~> 4.7", require: false
   gem "refinements", "~> 12.7"
   gem "rspec", "~> 3.13"
 end
