@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.metadata = {
     "bug_tracker_uri" => "https://github.com/bkuhlmann/xdg/issues",
     "changelog_uri" => "https://alchemists.io/projects/xdg/versions",
-    "documentation_uri" => "https://alchemists.io/projects/xdg",
+    "homepage_uri" => "https://alchemists.io/projects/xdg",
     "funding_uri" => "https://github.com/sponsors/bkuhlmann",
     "label" => "XDG",
     "rubygems_mfa_required" => "true",
