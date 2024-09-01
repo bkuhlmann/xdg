@@ -18,7 +18,7 @@ group :development do
 end
 
 group :test do
-  gem "refinements", "~> 12.7"
+  gem "refinements", "~> 12.8"
   gem "rspec", "~> 3.13"
 end
 
