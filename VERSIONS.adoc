@@ -1,5 +1,9 @@
 = Versions
 
+== 8.9.0 (2024-11-05)
+
+* 🔼 Updated to Refinements 12.10.0 - Brooke Kuhlmann
+
 == 8.8.0 (2024-10-07)
 
 * 🔼 Updated to Refinements 12.9.0 - Brooke Kuhlmann
