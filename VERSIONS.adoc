@@ -1,5 +1,11 @@
 = Versions
 
+== 8.10.0 (2024-11-09)
+
+* 🔼 Updated to Caliber 0.64.0 - Brooke Kuhlmann
+* 🔼 Updated to Git Lint 8.7.0 - Brooke Kuhlmann
+* 🔼 Updated to Ruby 3.3.6 - Brooke Kuhlmann
+
 == 8.9.0 (2024-11-05)
 
 * 🔼 Updated to Refinements 12.10.0 - Brooke Kuhlmann
