@@ -9,6 +9,12 @@ RSpec.describe XDG::Data do
     {"HOME" => "/home", **described_class::HOME_PAIR.to_env, **described_class::DIRS_PAIR.to_env}
   end
 
+  describe "#initialize" do
+    it "is frozen" do
+      expect(data.frozen?).to be(true)
+    end
+  end
+
   describe "#home" do
     it "answers home directory" do
       expect(data.home).to eq(Pathname("/home/.local/share"))

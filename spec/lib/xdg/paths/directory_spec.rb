@@ -8,6 +8,14 @@ RSpec.describe XDG::Paths::Directory do
   let(:home) { XDG::Pair["HOME", "/home"] }
   let(:environment) { home.to_env }
 
+  describe "#initialize" do
+    let(:pair) { XDG::Pair["TEST_DIRS", "/one"] }
+
+    it "is frozen" do
+      expect(path.frozen?).to be(true)
+    end
+  end
+
   describe "#default" do
     context "with single path" do
       let(:pair) { XDG::Pair["TEST_DIRS", "/one"] }

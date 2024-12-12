@@ -16,6 +16,7 @@ module XDG
     def initialize home: Paths::Home, directories: Paths::Directory, environment: ENV
       @combined = Paths::Combined.new home.new(HOME_PAIR, environment),
                                       directories.new(DIRS_PAIR, environment)
+      freeze
     end
 
     def inspect = "#<#{self.class}:#{object_id} #{self}>"

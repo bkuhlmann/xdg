@@ -5,6 +5,12 @@ require "spec_helper"
 RSpec.describe XDG::Environment do
   subject(:environment) { described_class.new environment: {"HOME" => "/home"} }
 
+  describe "#initialize" do
+    it "is frozen" do
+      expect(environment.frozen?).to be(true)
+    end
+  end
+
   describe "#cache_home" do
     it "answers cache home" do
       expect(environment.cache_home).to eq(Pathname("/home/.cache"))

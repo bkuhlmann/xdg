@@ -11,6 +11,7 @@ module XDG
       def initialize pair, environment = ENV
         @pair = pair
         @environment = environment
+        freeze
       end
 
       def default = value.split(DELIMITER).map { |path| expand path }

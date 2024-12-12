@@ -9,6 +9,7 @@ module XDG
       def initialize initial_home, initial_directories
         @initial_home = initial_home
         @initial_directories = initial_directories
+        freeze
       end
 
       def home = initial_home.dynamic

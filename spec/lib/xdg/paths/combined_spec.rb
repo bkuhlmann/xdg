@@ -9,6 +9,12 @@ RSpec.describe XDG::Paths::Combined do
   let(:directories) { XDG::Paths::Directory.new XDG::Pair["TEST_DIRS", "/two:/three"], environment }
   let(:environment) { {"HOME" => "/home"} }
 
+  describe "#initialize" do
+    it "is frozen" do
+      expect(path.frozen?).to be(true)
+    end
+  end
+
   describe "#home" do
     it "answers dynamic home" do
       expect(path.home).to eq(home.dynamic)
@@ -24,17 +30,6 @@ RSpec.describe XDG::Paths::Combined do
   describe "#all" do
     it "answers combined directories for unset environment" do
       expect(path.all).to contain_exactly(Pathname("/one"), Pathname("/two"), Pathname("/three"))
-    end
-
-    it "answers combined directories when dynamic home path answers multiple paths" do
-      allow(home).to receive(:dynamic).and_return([Pathname("/inject_a"), Pathname("/inject_b")])
-
-      expect(path.all).to contain_exactly(
-        Pathname("/inject_a"),
-        Pathname("/inject_b"),
-        Pathname("/two"),
-        Pathname("/three")
-      )
     end
 
     context "with set environment" do

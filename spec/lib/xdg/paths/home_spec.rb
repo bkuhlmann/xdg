@@ -9,6 +9,12 @@ RSpec.describe XDG::Paths::Home do
   let(:home) { XDG::Pair["HOME", "/home"] }
   let(:environment) { home.to_env }
 
+  describe "#initialize" do
+    it "is frozen" do
+      expect(path.frozen?).to be(true)
+    end
+  end
+
   describe "#default" do
     context "with custom environment" do
       let(:environment) { home.to_env.merge pair.to_env }

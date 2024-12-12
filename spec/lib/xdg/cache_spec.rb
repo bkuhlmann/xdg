@@ -7,6 +7,12 @@ RSpec.describe XDG::Cache do
 
   let(:environment) { {"HOME" => "/home", **described_class::HOME_PAIR.to_env} }
 
+  describe "#initialize" do
+    it "is frozen" do
+      expect(cache.frozen?).to be(true)
+    end
+  end
+
   describe "#home" do
     it "answers home directory" do
       expect(cache.home).to eq(Pathname("/home/.cache"))

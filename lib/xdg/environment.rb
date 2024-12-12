@@ -7,7 +7,8 @@ module XDG
       @cache = Cache.new(home:, directories:, environment:)
       @config = Config.new(home:, directories:, environment:)
       @data = Data.new(home:, directories:, environment:)
-      @state = State.new home:, directories:, environment:
+      @state = State.new(home:, directories:, environment:)
+      freeze
     end
 
     def cache_home = cache.home

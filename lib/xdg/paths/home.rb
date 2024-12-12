@@ -16,6 +16,7 @@ module XDG
       def initialize pair, environment = ENV
         @pair = pair
         @environment = environment
+        freeze
       end
 
       def default = expand String(value)
