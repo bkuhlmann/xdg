@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "pathname"
-
 module XDG
   module Paths
     # A collection of XDG directories.
