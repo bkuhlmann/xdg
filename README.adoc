@@ -322,3 +322,4 @@ bin/rake
 
 * Built with link:https://alchemists.io/projects/gemsmith[Gemsmith].
 * Engineered by link:https://alchemists.io/team/brooke_kuhlmann[Brooke Kuhlmann].
+* Created by link:https://github.com/trans[Thomas Sawyer] (link:https://github.com/rubyworks[Rubyworks]) in 2008 then transferred to Brooke in 2019.
