@@ -7,6 +7,7 @@ module XDG
       @cache = Cache.new(home:, directories:, environment:)
       @config = Config.new(home:, directories:, environment:)
       @data = Data.new(home:, directories:, environment:)
+      @runtime = Runtime.new(environment:)
       @state = State.new(home:, directories:, environment:)
       freeze
     end
@@ -21,9 +22,11 @@ module XDG
 
     def data_dirs = data.directories
 
+    def runtime_dir = runtime.home
+
     def state_home = state.home
 
-    def to_s = "#{cache} #{config} #{data} #{state}"
+    def to_s = "#{cache} #{config} #{data} #{runtime} #{state}"
 
     alias to_str to_s
 
@@ -31,6 +34,6 @@ module XDG
 
     private
 
-    attr_reader :cache, :config, :data, :state
+    attr_reader :cache, :config, :data, :runtime, :state
   end
 end

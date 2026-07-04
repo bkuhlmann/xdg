@@ -6,3 +6,6 @@ detectors:
   ModuleInitialize:
     exclude:
       - "XDG"
+  TooManyInstanceVariables:
+    exclude:
+      - "XDG::Environment"

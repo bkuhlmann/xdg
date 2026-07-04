@@ -9,6 +9,7 @@ require "xdg/paths/any"
 require "xdg/paths/combined"
 require "xdg/paths/directory"
 require "xdg/paths/home"
+require "xdg/runtime"
 require "xdg/state"
 
 # Main namespace.
