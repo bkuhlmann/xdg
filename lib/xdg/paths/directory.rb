@@ -3,14 +3,8 @@
 module XDG
   module Paths
     # A collection of XDG directories.
-    class Directory
+    class Directory < Any
       DELIMITER = ":"
-
-      def initialize pair, environment = ENV
-        @pair = pair
-        @environment = environment
-        freeze
-      end
 
       def default = value.split(DELIMITER).map { |path| expand path }
 
@@ -32,15 +26,9 @@ module XDG
         pairs.empty? ? "#<#{type}:#{object_id}>" : "#<#{type}:#{object_id} #{self}>"
       end
 
-      private
-
-      attr_reader :pair, :environment
-
       def key = String pair.key
 
       def value = String pair.value
-
-      def expand(path) = Pathname(path).expand_path
     end
   end
 end
