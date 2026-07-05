@@ -16,13 +16,14 @@ toc::[]
 
 == Features
 
-* Provides a `XDG` object that adheres to the _XDG Base Directory Specification_ with access to the following environment settings:
-** `$XDG_CACHE_HOME`
-** `$XDG_CONFIG_HOME`
-** `$XDG_CONFIG_DIRS`
-** `$XDG_DATA_HOME`
-** `$XDG_DATA_DIRS`
-** `$XDG_STATE_HOME`
+* Provides a `XDG` object that adheres to the _XDG Base Directory Specification_ with access to the following environment variables:
+** `XDG_CACHE_HOME`
+** `XDG_CONFIG_HOME`
+** `XDG_CONFIG_DIRS`
+** `XDG_DATA_HOME`
+** `XDG_DATA_DIRS`
+** `XDG_RUNTIME_DIR`
+** `XDG_STATE_HOME`
 
 == Requirements
 
@@ -71,12 +72,13 @@ To get up and running quickly, use `XDG.new` as follows:
 [source,ruby]
 ----
 xdg = XDG.new
-xdg.cache_home   # Answers computed `$XDG_CACHE_HOME` value.
-xdg.config_home  # Answers computed `$XDG_CONFIG_HOME` value.
-xdg.config_dirs  # Answers computed `$XDG_CONFIG_DIRS` value.
-xdg.data_home    # Answers computed `$XDG_DATA_HOME` value.
-xdg.data_dirs    # Answers computed `$XDG_DATA_DIRS` value.
-xdg.state_home   # Answers computed `$XDG_STATE_HOME` value.
+xdg.cache_home   # Answers computed `XDG_CACHE_HOME` value.
+xdg.config_home  # Answers computed `XDG_CONFIG_HOME` value.
+xdg.config_dirs  # Answers computed `XDG_CONFIG_DIRS` value.
+xdg.data_home    # Answers computed `XDG_DATA_HOME` value.
+xdg.data_dirs    # Answers computed `XDG_DATA_DIRS` value.
+xdg.runtime_dir  # Answers computed `XDG_RUNTIME_DIR` value.
+xdg.state_home   # Answers computed `XDG_STATE_HOME` value.
 ----
 
 Behinds the scenes, use of `XDG.new` wraps `XDG::Environment.new` which provides a unified Object API to the following objects:
@@ -86,15 +88,16 @@ Behinds the scenes, use of `XDG.new` wraps `XDG::Environment.new` which provides
 cache = XDG::Cache.new
 config = XDG::Config.new
 data = XDG::Data.new
+runtime = XDG::Runtime.new
 state = XDG::State.new
 ----
 
 Generally, use of `XDG.new` is all you need but knowing you can create a specialized instance of any aspect of the XDG specification can be handy for specific use cases. Additionally, the `cache`, `config`, `data`, and `state` objects share the same API which means you can send the following messages:
 
-* `#home`: Answers the home directory as computed via the `$XDG_*_HOME` key.
-* `#directories`: Answers an array directories as computed via the `$XDG_*_DIRS` key.
-* `#all`: Answers an array of _all_ directories as computed from the combined `$XDG_*_HOME` and
-  `$XDG_*_DIRS` values (with `$XDG_*_HOME` prefixed at the start of the array).
+* `#home`: Answers the home directory as computed via the `+XDG_*_HOME+` key.
+* `#directories`: Answers an array directories as computed via the `+XDG_*_DIRS+` key.
+* `#all`: Answers an array of _all_ directories as computed from the combined `+XDG_*_HOME+` and
+  `+XDG_*_DIRS+` values (with `+XDG_*_HOME+` prefixed at the start of the array).
 * `#to_s`: Answers an _explicit_ string cast for the current environment.
 * `#to_str`: Answers an _implicit_ string cast for the current environment.
 * `#inspect`: Answers object inspection complete with object type, object ID, and all environment variables.
@@ -115,54 +118,63 @@ xdg = XDG.new
 cache = XDG::Cache.new
 config = XDG::Config.new
 data = XDG::Data.new
+runtime = XDG::Runtime.new
 state = XDG::State.new
 
 # Paths
 
-xdg.cache_home      # "#<Pathname:/Users/demo/.cache>"
-xdg.config_home     # "#<Pathname:/Users/demo/.config>"
-xdg.config_dirs     # ["#<Pathname:/etc/xdg>"]
-xdg.data_home       # "#<Pathname:/Users/demo/.local/share>"
-xdg.data_dirs       # ["#<Pathname:/usr/local/share>", "#<Pathname:/usr/share>"]
-xdg.state_home      # "#<Pathname:/Users/demo/.local/state>"
+xdg.cache_home       # "#<Pathname:/Users/demo/.cache>"
+xdg.config_home      # "#<Pathname:/Users/demo/.config>"
+xdg.config_dirs      # ["#<Pathname:/etc/xdg>"]
+xdg.data_home        # "#<Pathname:/Users/demo/.local/share>"
+xdg.data_dirs        # ["#<Pathname:/usr/local/share>", "#<Pathname:/usr/share>"]
+xdg.runtime_dir      # "#<Pathname:>"
+xdg.state_home       # "#<Pathname:/Users/demo/.local/state>"
 
-cache.home          # "#<Pathname:/Users/demo/.cache>"
-cache.directories   # []
-cache.all           # ["#<Pathname:/Users/demo/.cache>"]
+cache.home           # "#<Pathname:/Users/demo/.cache>"
+cache.directories    # []
+cache.all            # ["#<Pathname:/Users/demo/.cache>"]
 
-config.home         # "#<Pathname:/Users/demo/.config>"
-config.directories  # ["#<Pathname:/etc/xdg>"]
-config.all          # ["#<Pathname:/Users/demo/.config>", "#<Pathname:/etc/xdg>"]
+config.home          # "#<Pathname:/Users/demo/.config>"
+config.directories   # ["#<Pathname:/etc/xdg>"]
+config.all           # ["#<Pathname:/Users/demo/.config>", "#<Pathname:/etc/xdg>"]
 
-data.home           # "#<Pathname:/Users/demo/.local/share>"
-data.directories    # ["#<Pathname:/usr/local/share>", "#<Pathname:/usr/share>"]
-data.all            # ["#<Pathname:/Users/demo/.local/share>", "#<Pathname:/usr/local/share>", "#<Pathname:/usr/share>"]
+data.home            # "#<Pathname:/Users/demo/.local/share>"
+data.directories     # ["#<Pathname:/usr/local/share>", "#<Pathname:/usr/share>"]
+data.all             # ["#<Pathname:/Users/demo/.local/share>", "#<Pathname:/usr/local/share>", "#<Pathname:/usr/share>"]
 
-state.home          # "#<Pathname:/Users/demo/.local/state>"
-state.directories   # []
-state.all           # ["#<Pathname:/Users/demo/.local/state>"]
+runtime.home         # "#<Pathname:>"
+runtime.directories  # []
+runtime.all          # ["#<Pathname:>"]
 
-# Casts (explicit and implicit)
+state.home           # "#<Pathname:/Users/demo/.local/state>"
+state.directories    # []
+state.all            # ["#<Pathname:/Users/demo/.local/state>"]
 
-xdg.to_s            # "XDG_CACHE_HOME=/Users/demo/.cache XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share XDG_STATE_HOME=/Users/demo/.local/state"
-cache.to_s          # "XDG_CACHE_HOME=/Users/demo/.cache"
-config.to_s         # "XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg"
-data.to_s           # "XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share"
-state.to_s          # "XDG_STATE_HOME=/Users/demo/.local/state"
+# Strings (explicit and implicit)
 
-xdg.to_str          # "XDG_CACHE_HOME=/Users/demo/.cache XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share XDG_STATE_HOME=/Users/demo/.local/state"
-cache.to_str        # "XDG_CACHE_HOME=/Users/demo/.cache"
-config.to_str       # "XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg"
-data.to_str         # "XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share"
-state.to_str        # "XDG_STATE_HOME=/Users/demo/.local/state"
+xdg.to_s             # "XDG_CACHE_HOME=/Users/demo/.cache XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share XDG_RUNTIME_DIR= XDG_STATE_HOME=/Users/demo/.local/state"
+cache.to_s           # "XDG_CACHE_HOME=/Users/demo/.cache"
+config.to_s          # "XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg"
+data.to_s            # "XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share"
+runtime.to_s         # "XDG_RUNTIME_DIR="
+state.to_s           # "XDG_STATE_HOME=/Users/demo/.local/state"
+
+xdg.to_str           # "XDG_CACHE_HOME=/Users/demo/.cache XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share XDG_RUNTIME_DIR= XDG_STATE_HOME=/Users/demo/.local/state"
+cache.to_str         # "XDG_CACHE_HOME=/Users/demo/.cache"
+config.to_str        # "XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg"
+data.to_str          # "XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share"
+runtime.to_str       # "XDG_RUNTIME_DIR="
+state.to_str         # "XDG_STATE_HOME=/Users/demo/.local/state"
 
 # Inspection
 
-xdg.inspect         # "#<XDG::Environment:2020 XDG_CACHE_HOME=/Users/demo/.cache XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share XDG_STATE_HOME=/Users/demo/.local/state>"
-cache.inspect       # "#<XDG::Cache:2040 XDG_CACHE_HOME=/Users/demo/.cache>"
-config.inspect      # "#<XDG::Config:2060 XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg>"
-data.inspect        # "#<XDG::Data:2080 XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share>"
-state.inspect       # "#<XDG::State:2100 XDG_STATE_HOME=/Users/demo/.local/state>"
+xdg.inspect          # "#<XDG::Environment:1456 XDG_CACHE_HOME=/Users/demo/.cache XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share XDG_RUNTIME_DIR= XDG_STATE_HOME=/Users/demo/.local/state>"
+cache.inspect        # "#<XDG::Cache:2040 XDG_CACHE_HOME=/Users/demo/.cache>"
+config.inspect       # "#<XDG::Config:2060 XDG_CONFIG_HOME=/Users/demo/.config XDG_CONFIG_DIRS=/etc/xdg>"
+data.inspect         # "#<XDG::Data:2080 XDG_DATA_HOME=/Users/demo/.local/share XDG_DATA_DIRS=/usr/local/share:/usr/share>"
+runtime.inspect      # "#<XDG::Runtime:1496 XDG_RUNTIME_DIR=>"
+state.inspect        # "#<XDG::State:2100 XDG_STATE_HOME=/Users/demo/.local/state>"
 ----
 
 === Variable Defaults
@@ -171,15 +183,15 @@ The _XDG Base Directory Specification_ defines environment variables and associa
 when not defined or empty. The following defaults, per specification, are implemented by the `XDG`
 objects:
 
-* `$XDG_CACHE_HOME="$HOME/.cache"`
-* `$XDG_CONFIG_HOME="$HOME/.config"`
-* `$XDG_CONFIG_DIRS="/etc/xdg"`
-* `$XDG_DATA_HOME="$HOME/.local/share"`
-* `$XDG_DATA_DIRS="/usr/local/share/:/usr/share/"`
-* `$XDG_RUNTIME_DIR`
-* `$XDG_STATE_HOME="$HOME/.local/state"`
+* `XDG_CACHE_HOME="$HOME/.cache"`
+* `XDG_CONFIG_HOME="$HOME/.config"`
+* `XDG_CONFIG_DIRS="/etc/xdg"`
+* `XDG_DATA_HOME="$HOME/.local/share"`
+* `XDG_DATA_DIRS="/usr/local/share/:/usr/share/"`
+* `XDG_RUNTIME_DIR=`
+* `XDG_STATE_HOME="$HOME/.local/state"`
 
-The `$XDG_RUNTIME_DIR` environment variable deserves special mention because it’s not, _currently_, implemented as part of this gem because it is more user/environment specific. Here is how the `$XDG_RUNTIME_DIR` is meant to be used should you choose to use it:
+The `XDG_RUNTIME_DIR` environment variable deserves special mention because it is more user/environment specific and has no default value. Here is how `XDG_RUNTIME_DIR` is meant to be used should you choose to use it:
 
 * _Must_ reference user-specific non-essential runtime files and other file objects (such as
 sockets, named pipes, etc.)
@@ -205,12 +217,17 @@ memory and cannot necessarily be swapped out to disk.
 
 === Variable Behavior
 
-The behavior of most XDG environment variables can be lumped into two categories:
+The behavior of the XDG environment variables can be broken down by category:
 
-* `$XDG_*_DIRS`
-* `$XDG_*_HOME`
+* `+XDG_*_DIR+`
+* `+XDG_*_DIRS+`
+* `+XDG_*_HOME+`
 
 Each is described in detail below.
+
+==== Directory
+
+The `+XDG_*_DIR+` category is unique in that it is specific to the `XDG_RUNTIME_DIR` and has no default value. This directory must adhere to all of the `XDG_RUNTIME_DIR` requirements as documented above.
 
 ==== Directories
 
@@ -237,10 +254,10 @@ The above then yields the following, colon delimited, array:
 In the above example, the `"/demo/one/.config"` path takes _highest_ priority since it was
 defined first.
 
-==== Homes
+==== Home
 
-These variables take precedence over the corresponding `$XDG_*_DIRS` environment variables. Using
-a modified version of the `$XDG_*_DIRS` example, shown above, we could have the following setup:
+These variables take precedence over the corresponding `+XDG_*_DIRS+` environment variables. Using
+a modified version of the `+XDG_*_DIRS+` example, shown above, we could have the following setup:
 
 [source,bash]
 ----
@@ -266,8 +283,8 @@ _highest_ priority is: `"/demo/priority"`.
 
 Path precedence is determined in the following order (with the first taking highest priority):
 
-. `$XDG_*_HOME` - Will be used if defined. Otherwise, falls back to specification default.
-. `$XDG_*_DIRS` - Iterates through directories in order defined (with first taking highest
+. `+XDG_*_HOME+` - Will be used if defined. Otherwise, falls back to specification default.
+. `+XDG_*_DIRS+` - Iterates through directories in order defined (with first taking highest
   priority). Otherwise, falls back to specification default.
 
 == Development
