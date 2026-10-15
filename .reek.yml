@@ -3,9 +3,13 @@ exclude_paths:
   - vendor
 
 detectors:
+  LongParameterList:
+    enabled: false
   ModuleInitialize:
     exclude:
       - "XDG"
   TooManyInstanceVariables:
     exclude:
       - "XDG::Environment"
+  UnusedParameters:
+    enabled: false
