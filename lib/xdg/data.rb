@@ -6,10 +6,10 @@ require "xdg/pair"
 module XDG
   # Provides data support.
   class Data
-    extend Forwardable
-
     HOME_PAIR = Pair["XDG_DATA_HOME", ".local/share"].freeze
     DIRS_PAIR = Pair["XDG_DATA_DIRS", "/usr/local/share:/usr/share"].freeze
+
+    extend Forwardable
 
     delegate %i[home directories all to_s to_str] => :combined
 

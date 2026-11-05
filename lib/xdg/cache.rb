@@ -6,9 +6,9 @@ require "xdg/pair"
 module XDG
   # Provides cache support.
   class Cache
-    extend Forwardable
-
     HOME_PAIR = Pair["XDG_CACHE_HOME", ".cache"].freeze
+
+    extend Forwardable
 
     delegate %i[home directories all to_s to_str] => :combined
 

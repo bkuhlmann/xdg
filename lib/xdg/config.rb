@@ -6,10 +6,10 @@ require "xdg/pair"
 module XDG
   # Provides configuration support.
   class Config
-    extend Forwardable
-
     HOME_PAIR = Pair["XDG_CONFIG_HOME", ".config"].freeze
     DIRS_PAIR = Pair["XDG_CONFIG_DIRS", "/etc/xdg"].freeze
+
+    extend Forwardable
 
     delegate %i[home directories all to_s to_str] => :combined
 

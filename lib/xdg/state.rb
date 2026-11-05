@@ -6,9 +6,9 @@ require "xdg/pair"
 module XDG
   # Provides state support.
   class State
-    extend Forwardable
-
     HOME_PAIR = Pair["XDG_STATE_HOME", ".local/state"].freeze
+
+    extend Forwardable
 
     delegate %i[home directories all to_s to_str] => :combined
 

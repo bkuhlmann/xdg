@@ -6,9 +6,9 @@ require "xdg/pair"
 module XDG
   # Provides runtime support.
   class Runtime
-    extend Forwardable
-
     HOME_PAIR = Pair["XDG_RUNTIME_DIR", nil].freeze
+
+    extend Forwardable
 
     delegate %i[home directories all to_s to_str] => :combined
 
